@@ -1,0 +1,479 @@
+html {
+    margin: 0;
+    padding: 0;
+    overflow-x:hidden;
+    scroll-behavior: smooth;
+    cursor: none;
+}
+
+body {
+    background:#efefef;
+    margin: 0;
+}
+
+#cube {
+    /* Positioning & Movement */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100000000;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    will-change: transform, width, height, background;
+    
+    /* Default State (Small Red Box) */
+    display: flex; /* Always display */
+    align-items: center;
+    justify-content: center;
+    height: 15px;
+    width: 15px;
+    background: red;
+    
+    /* Hide text in default state */
+    color: transparent;
+    font-size: 0;
+    overflow: hidden; /* Prevents text from showing when small */
+    padding: 0;
+    
+    /* Transitions */
+    /* transform is fast (0.05s) for lag-free mouse following */
+    /* other props are slower (0.3s) for the "grow" effect */
+    transition: transform 0.05s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease, color 0.3s ease, padding 0.3s ease;
+    
+    font-family: 'Tissot Sans';
+    font-weight: 1000;
+    white-space: nowrap;
+}
+
+/* The Expanded State */
+#cube.active {
+    height: 50px;
+    width: auto; /* Allows it to grow to fit text */
+    background: black;
+    color: white;
+    font-size: 3rem;
+    padding-inline: 0.6rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    letter-spacing: -0.4rem;
+    cursor: none;
+}
+
+
+.hover-area:hover { 
+    /* This hides the standard mouse cursor */
+    cursor: none; 
+}
+
+img {
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+div {
+    font-family: 'Tissot Sans';
+}
+
+@font-face {
+    font-family: 'Tissot Sans';
+    src: url('/assets/fonts/TissotSans-Regular.eot');
+    src: url('/assets/fonts/TissotSans-Regular.eot?#iefix') format('embedded-opentype'),
+        url('/assets/fonts/TissotSans-Regular.woff2') format('woff2'),
+        url('/assets/fonts/TissotSans-Regular.woff') format('woff'),
+        url('/assets/fonts/TissotSansVF.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@keyframes parallax {
+  from {
+    bottom: 0px;
+    letter-spacing: -2.6rem;
+    font-size: 20rem;
+  }
+  to {
+    bottom: -100px;
+    letter-spacing: -1rem;
+    font-size: 30rem;
+  }
+}
+
+@keyframes VH-parallax {
+  from {
+    height:100vh
+  }
+  to {
+    height:85vh
+  }
+}
+
+
+h1 {
+    font-family: 'Tissot Sans';
+    font-weight: 1000;
+    font-size: 100%;
+    letter-spacing: -3pt;
+}
+
+header {
+    z-index: 1000;
+    background-color: transparent;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 3rem;
+    color: black;
+    }
+
+.header-cont {
+    margin-inline: 1rem;
+    display: flex;
+    width: 100vw;
+    align-self: center;
+    justify-content: left;
+    column-gap: 1rem;
+}
+
+.hero {
+    z-index: 1001;
+    display: flex;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    animation: VH-parallax ease;
+    animation-timeline: scroll();
+}
+
+.hero-img-cont {
+    position: absolute;
+    display: flex;
+    width: 100vw;
+    height: 100%;
+}
+
+.hero-img {
+    height: 100%;
+    width: 100vw;
+    object-fit: cover;
+}
+
+.hero-text-div-cont {
+    position: relative;
+    align-self: center;
+    left: -1.5rem;
+    /*animation: parallax linear;
+    animation-timeline: scroll();*/
+}
+
+.hero-text-cont
+
+.hero-text {
+    animation: parallax ease-in;
+    animation-timeline: scroll();
+    font-size: 20rem;
+}
+
+.hero-type {
+    width: 60vw;
+    height: 60vw;
+}
+
+
+
+
+
+
+
+.catalogue {
+    display:block;
+    position: relative;
+    justify-content: center;
+    justify-items: center;
+    overflow: hidden;
+    background-color: white;
+}
+
+.self-intro-cont {
+    display: flex;
+    position: relative;
+    height: 30vh;
+    align-items: last baseline;
+}
+
+.self-intro {
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 100;
+    font-size: 1.2rem;
+}
+
+
+
+
+
+
+/* CAROUSEL */
+
+.carousel-cont {
+  font-family: 'Tissot Sans';
+    font-weight: 1000;
+  background: white;
+  height: 100vh;
+  position: relative;
+  cursor: none;
+}
+
+.carousel {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  width: 100vw;
+  pointer-events: none;
+}
+
+.carousel-item {
+  --items: 10;
+  --width: clamp(150px, 30vw,  300px);
+  --height: clamp(200px, 40vw,  400px);
+  --x: calc(var(--active) * 1700%);
+  --y: calc(var(--active) * -800%);
+  --rot: calc(var(--active) * 0deg);
+  --opacity: calc(var(--zIndex) / var(--items) * 3 - 2);
+  overflow: hidden;
+  position: absolute;
+  z-index: var(--zIndex);
+  width: var(--width);
+  height: var(--height);
+  margin: calc(var(--height) * -0.5) 0 0 calc(var(--width) * -0.5);
+  border-radius: 0px;
+  top: 50%;
+  left: 50%;
+  user-select: none;
+  transform-origin: 0% 100%;
+  box-shadow: 0 10px 50px 10px rgba(0, 0, 0, .5);
+  background: black;
+  pointer-events: all;
+  transform:  translate(var(--x), var(--y)) rotate(var(--rot)) ;
+  transition: transform 0.6s ease;
+
+}
+
+  .carousel-box {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 1s ease;
+    opacity: var(--opacity);
+
+    &:before {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, .3), rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .5));
+    }
+  }
+
+  .project-link {
+    cursor: none !important;
+}
+
+
+
+  /* TITLES */
+
+  .title1 {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    bottom: 20px;
+    left: 20px;
+    transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+    text-shadow: 0 4px 4px rgba(0, 0, 0, .1);
+    font-size: 2rem;
+  }
+
+  .title2 {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    bottom: 20px;
+    left: 20px;
+    transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+    text-shadow: 0 4px 4px rgba(0, 0, 0, .1);
+    font-size: 2rem;
+  }
+
+   .title3 {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    bottom: 20px;
+    left: 20px;
+    transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+    text-shadow: 0 4px 4px rgba(0, 0, 0, .1);
+    font-size: 2rem;
+  }
+
+   .title4 {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    bottom: 0px;
+    left: 20px;
+    transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+    text-shadow: 0 4px 4px rgba(0, 0, 0, .1);
+    font-size: 5rem;
+    letter-spacing: -0.5rem;
+  }
+
+     .title5 {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    bottom: 12px;
+    left: 20px;
+    transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+    text-shadow: 0 4px 4px rgba(0, 0, 0, .1);
+    font-size: 6.5rem;
+    letter-spacing: -0.6rem;
+    line-height: 0.78;
+  }
+
+     .title6 {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    bottom: 10px;
+    left: 20px;
+    transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+    text-shadow: 0 4px 4px rgba(0, 0, 0, .1);
+    font-size: 8.3rem;
+    letter-spacing: -0.9rem;
+    line-height: 0.75;
+  }
+
+     .title7 {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    bottom: 20px;
+    left: 20px;
+    transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+    text-shadow: 0 4px 4px rgba(0, 0, 0, .1);
+    font-size: 2rem;
+  }
+
+     .title8 {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    bottom: 20px;
+    left: 20px;
+    transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+    text-shadow: 0 4px 4px rgba(0, 0, 0, .1);
+    font-size: 2rem;
+  }
+
+     .title9 {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    bottom: 20px;
+    left: 20px;
+    transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+    text-shadow: 0 4px 4px rgba(0, 0, 0, .1);
+    font-size: 2rem;
+  }
+
+       .title10 {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    bottom: 20px;
+    left: 20px;
+    transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+    text-shadow: 0 4px 4px rgba(0, 0, 0, .1);
+    font-size: 2rem;
+  }
+
+
+
+  .num {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    top: 10px;
+    left: 20px;
+    transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+    font-size: clamp(20px, 10vw, 80px);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+
+.layout {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 90px;
+    width: 10px;
+    height: 100%;
+    border: 1px solid #fff;
+    border-top: none;
+    border-bottom: none;
+    opacity: .15;
+  }
+}
+
+
+
+
+
+
+footer {
+    z-index: 10000000;
+    background-color: black;
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 30vh;
+    }
+
+.footer-cont {
+    margin-inline: 1rem;
+    display: flex;
+    width: 100vw;
+    align-self: center;
+    justify-content: space-between;
+    color: white;
+}

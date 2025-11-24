@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>GS Portfolio 01</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="header-cont">
+            <p>Gabriel Shearer</p>
+            
+        </div>
+   </header>
+   <div id="container">
+    <div id="cube"> 
+    </div>
+</div>
+   <section class="hero">
+        <div class="hero-img-cont">
+            <img class="hero-img" draggable="false" src="./assets/batarangs visual.png">
+        </div>
+        <div class="hero-text-div-cont">
+            <div class="hero-text-cont">
+                <img class="hero-type" src="assets/Asset 4.svg">
+            </div>
+        </div>
+   </section>
+   <section class="catalogue">
+        <div class="self-intro-cont">
+            <div class="self-intro">
+                <h2>Short writing about your work. What you enjoy making and why. Perhaps something<br>about your love of comics, and creating pieces that are defined by authentic characters<br>or context. Mention you’re currently in college as this’ll help you stand out - ”wow he’s<br>only in college with such a well presented portfolio?!” You’ll have an about page, so this<br>shouldn’t be too long or indepth.</h2>
+            </div>
+        </div>
+        <div class="carousel-cont">
+            <div class="carousel">
+                <div class="carousel-item hover-area" data-label="Project Title">
+                    <a href="project1.html" class="project-link" draggable="false">
+                    <div class="carousel-box">
+                        <div class="title1">Prj</div>
+                        <div class="num">01</div>
+                        <img src="" />
+                    </div>
+                    </a>
+                </div>
+
+                <div class="carousel-item hover-area" data-label="Project Title">
+                    <a href="project2.html" class="project-link" draggable="false">
+                    <div class="carousel-box">
+                        <div class="title2">Prj</div>
+                        <div class="num">02</div>
+                        <img src="" />
+                    </div>
+                    </a>
+                </div>
+
+                <div class="carousel-item hover-area" data-label="Project Title">
+                    <a href="project3.html" class="project-link" draggable="false">
+                    <div class="carousel-box">
+                        <div class="title3">Prj</div>
+                        <div class="num">03</div>
+                        <img
+                            src=""
+                        />
+                    </div>
+                    </a>
+                </div>
+
+                <div class="carousel-item hover-area" data-label="Batman">
+                    <a href="projectBatman.html" class="project-link" draggable="false">
+                    <div class="carousel-box">
+                        <div class="title4">Batman</div>
+                        <div class="num">04</div>
+                        <img src="./assets/batarangs visual.png"/>
+                    </div>
+                    </a>
+                </div>
+
+                <div class="carousel-item hover-area" data-label="Doom Slayer">
+                    <a href="projectDoomSlayer.html" class="project-link" draggable="false">
+                    <div class="carousel-box">
+                        <div class="title5">Doom<br>Slayer</div>
+                        <div class="num">05</div>
+                        <img src="./assets/output.webp"/>
+                    </div>
+                    </a>
+                </div>
+
+                <div class="carousel-item hover-area" data-label="Daredevil">
+                    <a href="projectDaredevil.html" class="project-link" draggable="false">
+                    <div class="carousel-box">
+                        <div class="title6">Dare <br> Devil</div>
+                        <div class="num">06</div>
+                        <img src="./assets/batarangs visual.png"/>
+                    </div>
+                    </a>
+                </div>
+
+                <div class="carousel-item hover-area" data-label="Project Title">
+                    <a href="project7.html" class="project-link" draggable="false">
+                    <div class="carousel-box">
+                        <div class="title7">Prj</div>
+                        <div class="num">07</div>
+                        <img src=""/>
+                    </div>
+                    </a>
+                </div>
+
+                <div class="carousel-item hover-area" data-label="Project Title">
+                    <a href="project8.html" class="project-link" draggable="false">
+                    <div class="carousel-box">
+                        <div class="title8">Prj</div>
+                        <div class="num">08</div>
+                        <img src=""/>
+                    </div>
+                    </a>
+                </div>
+
+                <div class="carousel-item hover-area" data-label="Project Title">
+                    <a href="project9.html" class="project-link" draggable="false">
+                        <div class="carousel-box">
+                            <div class="title9">Prj</div>
+                            <div class="num">09</div>
+                            <img src=""/>
+                        </div>
+                    </a>
+                </div>
+                <div class="carousel-item hover-area" data-label="Project Title">
+                    <a href="project10.html" class="project-link" draggable="false">
+                        <div class="carousel-box">
+                            <div class="title10">Prj</div>
+                            <div class="num">10</div>
+                            <img src=""/>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+   </section>
+   <!-- 
+   <footer>
+    <div class="footer-cont">
+        <h2>Footer</h2>
+    </div>
+   </footer>
+   -->
+   <script>
+const cube = $("#cube");
+
+/*--------------------
+  Cube Follower Logic
+--------------------*/
+// 1. GLOBAL Mouse Movement
+$(document).on("mousemove", function (e) {
+    cube.css({
+        transform: `translate(${e.pageX}px, ${e.pageY}px) translate(-50%, -50%)`
+    });
+});
+
+// 2. Hover Enter
+$(".hover-area").on("mouseenter", function () {
+    let projectTitle = $(this).data("label");
+    cube.text(projectTitle);
+    cube.addClass("active");
+});
+
+// 3. Hover Leave
+$(".hover-area").on("mouseleave", function () {
+    cube.removeClass("active");
+    setTimeout(() => {
+        if (!cube.hasClass("active")) cube.text(""); 
+    }, 300);
+});
+
+
+/*--------------------
+  Carousel Logic
+--------------------*/
+let progress = 50;
+let startX = 0;
+let active = 0;
+let isDown = false;
+let isDragging = false; 
+
+/*--------------------
+  Constants
+--------------------*/
+const speedDrag = -0.1;
+
+/*--------------------
+  Get Z & Items
+--------------------*/
+const $items = document.querySelectorAll('.carousel-item');
+const getZindex = (array, index) => (array.map((_, i) => (index === i) ? array.length : array.length - Math.abs(index - i)));
+
+const displayItems = (item, index, active) => {
+    const zIndex = getZindex([...$items], active)[index];
+    item.style.setProperty('--zIndex', zIndex);
+    item.style.setProperty('--active', (index - active) / $items.length);
+};
+
+/*--------------------
+  Animate (Fixed: Floating Point Error)
+--------------------*/
+const animate = () => {
+    progress = Math.max(0, Math.min(progress, 100));
+    // FIX: Add 1e-6 (epsilon) for correct rounding
+    active = Math.floor((progress / 100 * ($items.length - 1)) + 1e-6); 
+    $items.forEach((item, index) => displayItems(item, index, active));
+};
+animate();
+
+/*--------------------
+  Click / Interaction Logic (Fixed: Snapping and Links)
+--------------------*/
+$items.forEach((item, i) => {
+    item.addEventListener('click', (e) => {
+        // 1. If dragging, prevent the link/snap and stop
+        if (isDragging) {
+            e.preventDefault(); 
+            return;
+        }
+
+        // 2. Check if this item is already the active center one
+        if (active === i) {
+            // It is the center item: Allow the <a> tag to fire 
+            return; 
+        } else {
+            // 3. If not active, prevent the link and snap it to center
+            e.preventDefault(); // Stop the <a> tag from navigating
+            
+            if ($items.length > 1) {
+                progress = (i / ($items.length - 1)) * 100;
+                animate();
+            }
+        }
+    });
+});
+
+/*--------------------
+  Mouse/Touch Handlers
+--------------------*/
+const handleMouseMove = (e) => {
+    if (!isDown) return;
+
+    const x = e.clientX || (e.touches && e.touches[0].clientX) || 0;
+    
+    // Check if the movement is a drag (10px threshold)
+    if (Math.abs(x - startX) > 10) {
+        isDragging = true;
+    }
+
+    // Only update progress if we are actually dragging
+    if (isDragging) {
+        const mouseProgress = (x - startX) * speedDrag;
+        progress = progress + mouseProgress;
+        startX = x;
+        animate();
+    }
+};
+
+const handleMouseDown = e => {
+    isDown = true;
+    isDragging = false; 
+    startX = e.clientX || (e.touches && e.touches[0].clientX) || 0;
+};
+
+const handleMouseUp = () => {
+    isDown = false;
+};
+
+/*--------------------
+  Listeners (Fixed: Removed mousewheel)
+--------------------*/
+document.addEventListener('mousedown', handleMouseDown);
+document.addEventListener('mousemove', handleMouseMove);
+document.addEventListener('mouseup', handleMouseUp);
+
+document.addEventListener('touchstart', handleMouseDown);
+document.addEventListener('touchmove', handleMouseMove);
+document.addEventListener('touchend', handleMouseUp);
+</script>
+</body>
+
+</html>
