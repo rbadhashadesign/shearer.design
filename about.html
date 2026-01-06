@@ -2,8 +2,8 @@
 <html>
 
 <head>
-    <title>Gabriel Shearer</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Gabriel | About Me.</title>
+    <link rel="stylesheet" href="about.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap" rel="stylesheet">
 </head>
@@ -12,7 +12,7 @@
     <header>
         <div class="header-cont">
             <p class="headtext-1">Gabriel Shearer</p>
-            <p class="headtext-1">About Me.</p>
+            <p class="headtext-1">Projects.</p>
         </div>
    </header>
    <div id="container">
@@ -20,24 +20,9 @@
     </div>
 </div>
    <section class="hero">
-        <div class="hero-img-cont">
-            <video id="heroVideo" autoplay muted loop playsinline class="hero-img" draggable="false" src="./assets/BATARANGS_FOR_DEADLINE 2.mp4"></video>
-        </div>
-        <div class="hero-text-div-cont hover-area" data-label="About Me.">
-            <div class="hero-text-cont">
-                <img class="hero-type"  src="assets/Gabriel Word Type40Res.png">
-            </div>
-        </div>
+        
    </section>
    <section class="catalogue">
-        <div class="self-intro-cont">
-            <div class="self-intro">
-                <h2>I’m a graduating college student specialising in Fashion, Textiles and Costume Design,<br>with a creative passion for prop making and cosplay for Comic Con. I design and present<br>large-scale costume work for display at events, where my pieces are recognised for their<br>quality and detail. Inspired by comics and character design, I create authentic costume<br>pieces using both traditional techniques and 3D printing.</h2>
-            </div>
-            <div class="g-signature">
-                <img src="assets/G Signature.png">
-            </div>
-        </div>
         <div class="carousel-cont">
             <div class="carousel">
                 <div class="carousel-item hover-area" data-label="Someone shoot freddie">
@@ -81,7 +66,7 @@
                 </div>
 
                 <div class="carousel-item hover-area" data-label="Rip&Tear">
-                    <a href="./projects/doomslayer.html" class="project-link" draggable="false">
+                    <a href="./Projects/DoomSlayer.html" class="project-link" draggable="false">
                     <div class="carousel-box">
                         <div class="title5">Doom<br>Slayer</div>
                         <div class="num">01</div>
@@ -162,12 +147,12 @@ const rotateHeroVideo = () => {
 
     // Simpler method: Calculate the number of full days passed since a fixed start date.
     // Let's use 2025-12-23 (when this script is run) as Day 0 for video '2'.
-    const startDate = new Date(2025, 11, 21); // Month is 0-indexed (December is 11)
+    const startDate = new Date(2025, 11, 18); // Month is 0-indexed (December is 11)
     const timeDifference = now.getTime() - startDate.getTime();
     const daysPassed = Math.floor(timeDifference / oneDay);
 
     // Cycle through 0, 1, 2, 3 for video indexing
-    const videoCycleIndex = daysPassed % 2; 
+    const videoCycleIndex = daysPassed % 4; 
 
     // Map the index (0, 1, 2, 3) to the video number (1, 2, 3, 4)
     const videoNumber = videoCycleIndex + 1; 
