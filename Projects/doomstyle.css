@@ -1,0 +1,164 @@
+html {
+    margin: 0;
+    padding: 0;
+    overflow-x:hidden;
+    scroll-behavior: smooth;
+    cursor: none;
+    scrollbar-color: white black;
+    scrollbar-width: normal;
+}
+
+body {
+    background:#efefef;
+    margin: 0;
+}
+
+#cube {
+    /* Positioning & Movement */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100000000;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    will-change: transform, width, height, background;
+    
+    /* Default State (Small Red Box) */
+    display: flex; /* Always display */
+    align-items: center;
+    justify-content: center;
+    height: 15px;
+    width: 15px;
+    background: red;
+    
+    /* Hide text in default state */
+    color: transparent;
+    font-size: 0;
+    overflow: hidden; /* Prevents text from showing when small */
+    padding: 0;
+    
+    /* Transitions */
+    /* transform is fast (0.05s) for lag-free mouse following */
+    /* other props are slower (0.3s) for the "grow" effect */
+    transition: transform 0.05s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease, color 0.3s ease, padding 0.3s ease;
+    
+    font-family: 'Tissot Sans';
+    font-weight: 1000;
+    white-space: nowrap;
+}
+
+/* The Expanded State */
+#cube.active {
+    height: 50px;
+    width: auto; /* Allows it to grow to fit text */
+    background: black;
+    color: white;
+    font-size: 3rem;
+    padding-inline: 0.6rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    letter-spacing: -0.4rem;
+    cursor: none;
+}
+
+
+.hover-area:hover { 
+    /* This hides the standard mouse cursor */
+    cursor: none; 
+}
+
+
+@font-face {
+    font-family: 'Tissot Sans';
+    src: url('/assets/fonts/TissotSans-Regular.eot');
+    src: url('/assets/fonts/TissotSans-Regular.eot?#iefix') format('embedded-opentype'),
+        url('/assets/fonts/TissotSans-Regular.woff2') format('woff2'),
+        url('/assets/fonts/TissotSans-Regular.woff') format('woff'),
+        url('/assets/fonts/TissotSansVF.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+div {
+    font-family: 'Tissot Sans';
+}
+
+section {
+    font-family: 'Tissot Sans';
+}
+
+header {
+    z-index: -50;
+    display: flex;
+    position: fixed;
+    height: 3rem;
+    width: 100vw;
+    background-color: black;
+}
+
+.hero {
+    display: block;
+    position: relative;
+    height: 100vh;
+    background-color: white;
+}
+
+.hero-background {
+    display: flex;
+    position: relative;
+    height: 60vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.hero-img {
+    top: -45vh;
+    position: absolute;
+    width: 100vw;
+}
+
+.hero-title-cont {
+    display: flex;
+    position: relative;
+    height: 40vh;
+    width: 100vw;
+    background-color: black;
+    overflow: hidden;
+}
+
+h1 {
+    display: flex;
+    position: relative;
+    font-weight: 1000;
+    font-size: 36.5vh;
+    letter-spacing: -5vh;
+    color: white;
+    margin: 0;
+    padding: 0;
+    bottom: -6vh;
+}
+
+
+
+
+
+.backup-work {
+    z-index: -100;
+    position: relative;
+    display: block;
+    height: 300vh;
+    width: 100vw;
+}
+
+.bw1-main-cont {
+    position: relative;
+    display: flex;
+    height: 100vh;
+    padding: 0rem;
+}
+
+.bw1-img-cont {
+    position: relative;
+    display: flex;
+}
