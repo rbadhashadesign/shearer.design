@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GS-DoomSlayer</title>
+    <link rel="stylesheet" href="doomstyle.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="cube"> 
+    </div>
+    <header>
+        <div></div>
+    </header>
+    <section class="hero">
+        <div class="hero-background"><img class="hero-img" src="../assets/Doomslayer Photobash v02.png"></div>
+        <div class="hero-title-cont">
+            <div class="hero-title"><h1>DoomSlayer</h1></div>
+        </div>
+    </section>
+    <section class="backup-work">
+        <div class="bw1-main-cont">
+            <div class="bw1-img-cont">
+                <img src="../assets/Doomslayer Photobash v02.png" alt="">
+            </div>
+        </div>
+    </section>
+</body>
+<script>
+    const cube = $("#cube");
+    /*--------------------
+    Cube Follower Logic
+    --------------------*/
+    // 1. GLOBAL Mouse Movement
+    $(document).on("mousemove", function (e) {
+        cube.css({
+            transform: `translate(${e.pageX}px, ${e.pageY}px) translate(-50%, -50%)`
+        });
+    });
+    // 2. Hover Enter
+    $(".hover-area").on("mouseenter", function () {
+        let projectTitle = $(this).data("label");
+        cube.text(projectTitle);
+        cube.addClass("active");
+    });
+    // 3. Hover Leave
+    $(".hover-area").on("mouseleave", function () {
+        cube.removeClass("active");
+        setTimeout(() => {
+            if (!cube.hasClass("active")) cube.text(""); 
+        }, 300);
+    });
+</script>
+</html>
