@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Gabriel Shearer</title>
+    <title>Gabriel Shearer | Work.</title>
+    <link rel="icon" href="assets/pageicon.png">
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap" rel="stylesheet">
@@ -40,11 +40,10 @@
         </div>
         <div class="carousel-cont">
             <div class="carousel">
-                <div class="carousel-item hover-area" data-label="Someone shoot freddie">
+                <div class="carousel-item hover-area" data-label="Coming Soon">
                     <a href="project1.html" class="project-link" draggable="false">
                     <div class="carousel-box">
                         <div class="title1">TBC</div>
-                        <div class="num">?</div>
                             <img src="./assets/Asset 5.png"/>
                     </div>
                     </a>
@@ -54,7 +53,6 @@
                     <a href="project2.html" class="project-link" draggable="false">
                     <div class="carousel-box">
                         <div class="title2">TBC</div>
-                        <div class="num">?</div>
                             <img src="./assets/Asset 5.png"/>
                     </div>
                     </a>
@@ -63,39 +61,35 @@
                 <div class="carousel-item hover-area" data-label="Coming Soon.">
                     <a href="project3.html" class="project-link" draggable="false">
                     <div class="carousel-box">
-                        <div class="title3">TBC</div>
-                        <div class="num">?</div>
+                        <div class="title3">Archive</div>
                             <img src="./assets/Asset 5.png"/>
                     </div>
                     </a>
                 </div>
 
-                <div class="carousel-item hover-area" data-label="Coming Soon.">
+                <div class="carousel-item hover-area" data-label="Why do we fall, Bruce?">
                     <a href="projectBatman.html" class="project-link" draggable="false">
                     <div class="carousel-box">
                         <div class="title4">Batman</div>
-                        <div class="num">02</div>
-                            <img src="./assets/Asset 5.png"/>
+                            <img src="./assets/Batarangs.webp"/>
                     </div>
                     </a>
                 </div>
 
-                <div class="carousel-item hover-area" data-label="Rip&Tear">
+                <div class="carousel-item hover-area" data-label="Rip and Tear.">
                     <a href="./projects/doomslayer.html" class="project-link" draggable="false">
                     <div class="carousel-box">
                         <div class="title5">Doom<br>Slayer</div>
-                        <div class="num">01</div>
                         <img src="./assets/output.webp"/>
                     </div>
                     </a>
                 </div>
 
-                <div class="carousel-item hover-area" data-label="Coming Soon.">
+                <div class="carousel-item hover-area" data-label="There are other ways to see.">
                     <a href="projectDaredevil.html" class="project-link" draggable="false">
                     <div class="carousel-box">
                         <div class="title6">Dare <br> Devil</div>
-                        <div class="num">03</div>
-                        <img src="./assets/Asset 5.png"/>
+                        <img src="./assets/DareDevil.webp"/>
                     </div>
                     </a>
                 </div>
@@ -103,8 +97,7 @@
                 <div class="carousel-item hover-area" data-label="Coming Soon.">
                     <a href="project7.html" class="project-link" draggable="false">
                     <div class="carousel-box">
-                        <div class="title7">TBC</div>
-                        <div class="num">?</div>
+                        <div class="title7">Archive</div>
                             <img src="./assets/Asset 5.png"/>
                     </div>
                     </a>
@@ -114,7 +107,6 @@
                     <a href="project8.html" class="project-link" draggable="false">
                     <div class="carousel-box">
                         <div class="title8">TBC</div>
-                        <div class="num">?</div>
                             <img src="./assets/Asset 5.png"/>
                     </div>
                     </a>
@@ -124,7 +116,6 @@
                     <a href="project9.html" class="project-link" draggable="false">
                         <div class="carousel-box">
                             <div class="title9">TBC</div>
-                            <div class="num">?</div>
                             <img src="./assets/Asset 5.png"/>
                         </div>
                     </a>
@@ -133,10 +124,21 @@
                     <a href="project10.html" class="project-link" draggable="false">
                         <div class="carousel-box">
                             <div class="title10">TBC</div>
-                            <div class="num">?</div>
                             <img src="./assets/Asset 5.png"/>
                         </div>
                     </a>
+                </div>
+            </div>
+        </div>
+             <div class="footer-cont">
+                <div class="footer-text">
+                    <p class="footer-text-1">Designed by Gabriel Shearer &</p><p data-label="Visit." class="footer-text-1 hover-area" onclick='window.location.href="https://glued.studio/"'> &nbsp; GluedStudio</p>
+                </div>
+                <div class="footer-text">
+                    <p class="footer-text-1">Built by</p><p class="footer-text-1 hover-area" data-label="Visit." onclick='window.location.href="https://glued.studio/"'> &nbsp; GluedStudio</p>
+                </div>
+                <div class="footer-text">
+                    <p class="footer-text-1">© 2026 Gabriel Shearer | All Rights Reserved.</p>
                 </div>
             </div>
         </div>
@@ -167,7 +169,7 @@ const rotateHeroVideo = () => {
     const daysPassed = Math.floor(timeDifference / oneDay);
 
     // Cycle through 0, 1, 2, 3 for video indexing
-    const videoCycleIndex = daysPassed % 2; 
+    const videoCycleIndex = daysPassed % 3; 
 
     // Map the index (0, 1, 2, 3) to the video number (1, 2, 3, 4)
     const videoNumber = videoCycleIndex + 1; 
