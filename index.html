@@ -4,6 +4,7 @@
     <title>Gabriel Shearer | Work.</title>
     <link rel="icon" href="assets/pageicon.png">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap" rel="stylesheet">
 </head>
@@ -40,23 +41,7 @@
         </div>
         <div class="carousel-cont">
             <div class="carousel">
-                <div class="carousel-item hover-area" data-label="Coming Soon">
-                    <a href="project1.html" class="project-link" draggable="false">
-                    <div class="carousel-box">
-                        <div class="title1">TBC</div>
-                            <img src="./assets/Asset 5.png"/>
-                    </div>
-                    </a>
-                </div>
 
-                <div class="carousel-item hover-area" data-label="Coming Soon.">
-                    <a href="project2.html" class="project-link" draggable="false">
-                    <div class="carousel-box">
-                        <div class="title2">TBC</div>
-                            <img src="./assets/Asset 5.png"/>
-                    </div>
-                    </a>
-                </div>
 
                 <div class="carousel-item hover-area" data-label="Coming Soon.">
                     <a href="project3.html" class="project-link" draggable="false">
@@ -70,7 +55,7 @@
                 <div class="carousel-item hover-area" data-label="Why do we fall, Bruce?">
                     <a href="projectBatman.html" class="project-link" draggable="false">
                     <div class="carousel-box">
-                        <div class="title4">Batman</div>
+                        <div class="title4"> </div>
                             <img src="./assets/Batarangs.webp"/>
                     </div>
                     </a>
@@ -79,7 +64,7 @@
                 <div class="carousel-item hover-area" data-label="Rip and Tear.">
                     <a href="./projects/doomslayer.html" class="project-link" draggable="false">
                     <div class="carousel-box">
-                        <div class="title5">Doom<br>Slayer</div>
+                        <div class="title5"> <br> </div>
                         <img src="./assets/output.webp"/>
                     </div>
                     </a>
@@ -88,7 +73,7 @@
                 <div class="carousel-item hover-area" data-label="There are other ways to see.">
                     <a href="projectDaredevil.html" class="project-link" draggable="false">
                     <div class="carousel-box">
-                        <div class="title6">Dare <br> Devil</div>
+                        <div class="title6"> <br> </div>
                         <img src="./assets/DareDevil.webp"/>
                     </div>
                     </a>
@@ -103,31 +88,7 @@
                     </a>
                 </div>
 
-                <div class="carousel-item hover-area" data-label="Coming Soon.">
-                    <a href="project8.html" class="project-link" draggable="false">
-                    <div class="carousel-box">
-                        <div class="title8">TBC</div>
-                            <img src="./assets/Asset 5.png"/>
-                    </div>
-                    </a>
-                </div>
-
-                <div class="carousel-item hover-area" data-label="Coming Soon.">
-                    <a href="project9.html" class="project-link" draggable="false">
-                        <div class="carousel-box">
-                            <div class="title9">TBC</div>
-                            <img src="./assets/Asset 5.png"/>
-                        </div>
-                    </a>
-                </div>
-                <div class="carousel-item hover-area" data-label="Coming Soon.">
-                    <a href="project10.html" class="project-link" draggable="false">
-                        <div class="carousel-box">
-                            <div class="title10">TBC</div>
-                            <img src="./assets/Asset 5.png"/>
-                        </div>
-                    </a>
-                </div>
+                
             </div>
         </div>
              <div class="footer-cont">
@@ -145,33 +106,56 @@
    </section>
  
    <script>
-// --- NEW DAILY VIDEO ROTATION SCRIPT ---
-const rotateHeroVideo = () => {
+
+// --- START: Click Override Variables and Listener ---
+// This variable holds the temporary manual day number (1-25).
+// It starts at 22 to align with your new startDate (2025, 11, 22).
+// It resets on page reload, as requested (no localStorage used).
+let currentManualDay = 2; 
+
+// Click Listener: Increases the day number and updates the video
+document.getElementById('heroVideo').addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    // 1. Increase the day
+    currentManualDay++;
+    
+    // 2. Cycle logic: Reset to 1 if it goes over 25
+    if (currentManualDay > 25) {
+        currentManualDay = 1;
+    }
+    
+    // 3. Trigger the video update with the new manual day
+    // This calls the modified rotateHeroVideo function below, passing the new day number.
+    rotateHeroVideo(currentManualDay); 
+});
+// --- END: Click Override Variables and Listener ---
+
+
+// --- MODIFIED DAILY VIDEO ROTATION SCRIPT ---
+const rotateHeroVideo = (manualDay) => { // <-- ACCEPT THE NEW ARGUMENT
     const videoElement = document.getElementById('heroVideo');
     if (!videoElement) return;
 
-    // Get the current day of the year (0 to 365, but we'll use 1-366 for simplicity)
-    const now = new Date();
-    const start = new Date(now.getFullYear(), 0, 0); // Jan 1st of current year
-    const diff = now - start;
     const oneDay = 1000 * 60 * 60 * 24;
-    const dayOfYear = Math.floor(diff / oneDay);
+    const now = new Date();
+    
+    let daysPassed;
 
-    // We want a cycle of 3 videos (1, 2, 3, 4)
-    // 1. Map the dayOfYear to a 0, 1, 2, 3 cycle: (dayOfYear % 4)
-    // 2. Add 1 to the result to get the video number: (dayOfYear % 4) + 1
-    //    Day 1 -> 1 % 4 = 1 -> 1 + 1 = 2 (Wait, this is Day 1 of the year, not the starting day)
-
-    // Simpler method: Calculate the number of full days passed since a fixed start date.
-    // Let's use 2025-12-23 (when this script is run) as Day 0 for video '2'.
-    const startDate = new Date(2025, 11, 21); // Month is 0-indexed (December is 11)
-    const timeDifference = now.getTime() - startDate.getTime();
-    const daysPassed = Math.floor(timeDifference / oneDay);
-
-    // Cycle through 0, 1, 2, 3 for video indexing
+    // If a manualDay is passed (i.e., from the click listener), use it directly for the cycle calculation
+    if (manualDay !== undefined) {
+        daysPassed = manualDay;
+    } else {
+        // Otherwise, use the original date-based calculation
+        const startDate = new Date(2025, 11, 1); // Month is 0-indexed (December is 11)
+        const timeDifference = now.getTime() - startDate.getTime();
+        daysPassed = Math.floor(timeDifference / oneDay);
+    }
+    
+    // Cycle through 0, 1, 2 based on days passed (or manualDay)
     const videoCycleIndex = daysPassed % 3; 
 
-    // Map the index (0, 1, 2, 3) to the video number (1, 2, 3, 4)
+    // Map the cycle index (0, 1, 2) to the video file number (2, 3, 4)
     const videoNumber = videoCycleIndex + 1; 
 
     // Construct the path
@@ -180,15 +164,15 @@ const rotateHeroVideo = () => {
     // Set the new source
     if (videoElement.src !== videoPath) {
         videoElement.src = videoPath;
-        console.log(`Video updated to: ${videoPath} on day ${daysPassed}`);
+        // Optionally reload/play the video if it was already loaded
+        videoElement.load();
+        videoElement.play();
     }
 };
 
 // Execute the rotation logic immediately when the page loads
 rotateHeroVideo();
-
-// --- END NEW DAILY VIDEO ROTATION SCRIPT ---
-
+// --- END MODIFIED DAILY VIDEO ROTATION SCRIPT ---
 
 
 
