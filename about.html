@@ -1,333 +1,69 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>Gabriel | About Me.</title>
-    <link rel="icon" href="assets/pageicon.png">
-    <link rel="stylesheet" href="about.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap" rel="stylesheet">
-</head>
+    <head>
+        <title>Gabriel | About Me.</title>
+        <link rel="icon" href="assets/pageicon.png">
+        <link rel="stylesheet" href="about.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap" rel="stylesheet">
+    </head>
 
-<body>
-    <header>
-        <div class="header-cont">
-            <p class="headtext-1">Gabriel Shearer</p>
-            <p class="headtext-1">Projects.</p>
-        </div>
-   </header>
-   <div id="container">
-    <div id="cube"> 
-    </div>
-</div>
-   <section class="hero">
-        
-   </section>
-   <section class="catalogue">
-        <div class="carousel-cont">
-            <div class="carousel">
-                <div class="carousel-item hover-area" data-label="Someone shoot freddie">
-                    <a href="project1.html" class="project-link" draggable="false">
-                    <div class="carousel-box">
-                        <div class="title1">TBC</div>
-                        <div class="num">?</div>
-                            <img src="./assets/Asset 5.png"/>
-                    </div>
-                    </a>
-                </div>
-
-                <div class="carousel-item hover-area" data-label="Coming Soon.">
-                    <a href="project2.html" class="project-link" draggable="false">
-                    <div class="carousel-box">
-                        <div class="title2">TBC</div>
-                        <div class="num">?</div>
-                            <img src="./assets/Asset 5.png"/>
-                    </div>
-                    </a>
-                </div>
-
-                <div class="carousel-item hover-area" data-label="Coming Soon.">
-                    <a href="project3.html" class="project-link" draggable="false">
-                    <div class="carousel-box">
-                        <div class="title3">TBC</div>
-                        <div class="num">?</div>
-                            <img src="./assets/Asset 5.png"/>
-                    </div>
-                    </a>
-                </div>
-
-                <div class="carousel-item hover-area" data-label="Coming Soon.">
-                    <a href="projectBatman.html" class="project-link" draggable="false">
-                    <div class="carousel-box">
-                        <div class="title4">Batman</div>
-                        <div class="num">02</div>
-                            <img src="./assets/Asset 5.png"/>
-                    </div>
-                    </a>
-                </div>
-
-                <div class="carousel-item hover-area" data-label="Rip&Tear">
-                    <a href="./Projects/DoomSlayer.html" class="project-link" draggable="false">
-                    <div class="carousel-box">
-                        <div class="title5">Doom<br>Slayer</div>
-                        <div class="num">01</div>
-                        <img src="./assets/output.webp"/>
-                    </div>
-                    </a>
-                </div>
-
-                <div class="carousel-item hover-area" data-label="Coming Soon.">
-                    <a href="projectDaredevil.html" class="project-link" draggable="false">
-                    <div class="carousel-box">
-                        <div class="title6">Dare <br> Devil</div>
-                        <div class="num">03</div>
-                        <img src="./assets/Asset 5.png"/>
-                    </div>
-                    </a>
-                </div>
-
-                <div class="carousel-item hover-area" data-label="Coming Soon.">
-                    <a href="project7.html" class="project-link" draggable="false">
-                    <div class="carousel-box">
-                        <div class="title7">TBC</div>
-                        <div class="num">?</div>
-                            <img src="./assets/Asset 5.png"/>
-                    </div>
-                    </a>
-                </div>
-
-                <div class="carousel-item hover-area" data-label="Coming Soon.">
-                    <a href="project8.html" class="project-link" draggable="false">
-                    <div class="carousel-box">
-                        <div class="title8">TBC</div>
-                        <div class="num">?</div>
-                            <img src="./assets/Asset 5.png"/>
-                    </div>
-                    </a>
-                </div>
-
-                <div class="carousel-item hover-area" data-label="Coming Soon.">
-                    <a href="project9.html" class="project-link" draggable="false">
-                        <div class="carousel-box">
-                            <div class="title9">TBC</div>
-                            <div class="num">?</div>
-                            <img src="./assets/Asset 5.png"/>
-                        </div>
-                    </a>
-                </div>
-                <div class="carousel-item hover-area" data-label="Coming Soon.">
-                    <a href="project10.html" class="project-link" draggable="false">
-                        <div class="carousel-box">
-                            <div class="title10">TBC</div>
-                            <div class="num">?</div>
-                            <img src="./assets/Asset 5.png"/>
-                        </div>
-                    </a>
-                </div>
+    <body>
+        <header>
+            <div class="header-cont">
+                <p class="headtext-1 hover-area" data-label="Home." onclick='window.location.href="index.html"'>Gabriel Shearer</p>
+                <p class="headtext-1 hover-area" data-label="Projects." onclick='window.location.href="index.html#footer" '>Projects.</p>
+            </div>
+        </header>
+        <div id="container">
+            <div id="cube"> 
             </div>
         </div>
-   </section>
- 
-   <script>
-// --- NEW DAILY VIDEO ROTATION SCRIPT ---
-const rotateHeroVideo = () => {
-    const videoElement = document.getElementById('heroVideo');
-    if (!videoElement) return;
-
-    // Get the current day of the year (0 to 365, but we'll use 1-366 for simplicity)
-    const now = new Date();
-    const start = new Date(now.getFullYear(), 0, 0); // Jan 1st of current year
-    const diff = now - start;
-    const oneDay = 1000 * 60 * 60 * 24;
-    const dayOfYear = Math.floor(diff / oneDay);
-
-    // We want a cycle of 3 videos (1, 2, 3, 4)
-    // 1. Map the dayOfYear to a 0, 1, 2, 3 cycle: (dayOfYear % 4)
-    // 2. Add 1 to the result to get the video number: (dayOfYear % 4) + 1
-    //    Day 1 -> 1 % 4 = 1 -> 1 + 1 = 2 (Wait, this is Day 1 of the year, not the starting day)
-
-    // Simpler method: Calculate the number of full days passed since a fixed start date.
-    // Let's use 2025-12-23 (when this script is run) as Day 0 for video '2'.
-    const startDate = new Date(2025, 11, 18); // Month is 0-indexed (December is 11)
-    const timeDifference = now.getTime() - startDate.getTime();
-    const daysPassed = Math.floor(timeDifference / oneDay);
-
-    // Cycle through 0, 1, 2, 3 for video indexing
-    const videoCycleIndex = daysPassed % 4; 
-
-    // Map the index (0, 1, 2, 3) to the video number (1, 2, 3, 4)
-    const videoNumber = videoCycleIndex + 1; 
-
-    // Construct the path
-    const videoPath = `./assets/HERO-BG-${videoNumber}.mp4`;
-    
-    // Set the new source
-    if (videoElement.src !== videoPath) {
-        videoElement.src = videoPath;
-        console.log(`Video updated to: ${videoPath} on day ${daysPassed}`);
-    }
-};
-
-// Execute the rotation logic immediately when the page loads
-rotateHeroVideo();
-
-// --- END NEW DAILY VIDEO ROTATION SCRIPT ---
-
-
-
-
-
-
-
-
-
-
-
-const cube = $("#cube");
-
-/*--------------------
-  Cube Follower Logic
---------------------*/
-// 1. GLOBAL Mouse Movement
-$(document).on("mousemove", function (e) {
-    cube.css({
-        transform: `translate(${e.pageX}px, ${e.pageY}px) translate(-50%, -50%)`
-    });
-});
-
-// 2. Hover Enter
-$(".hover-area").on("mouseenter", function () {
-    let projectTitle = $(this).data("label");
-    cube.text(projectTitle);
-    cube.addClass("active");
-});
-
-// 3. Hover Leave
-$(".hover-area").on("mouseleave", function () {
-    cube.removeClass("active");
-    setTimeout(() => {
-        if (!cube.hasClass("active")) cube.text(""); 
-    }, 300);
-});
-
-
-
-
-
-
-
-
-
-
-
-
-/*--------------------
-  Carousel Logic
---------------------*/
-let progress = 50;
-let startX = 0;
-let active = 0;
-let isDown = false;
-let isDragging = false; 
-
-/*--------------------
-  Constants
---------------------*/
-const speedDrag = -0.1;
-
-/*--------------------
-  Get Z & Items
---------------------*/
-const $items = document.querySelectorAll('.carousel-item');
-const getZindex = (array, index) => (array.map((_, i) => (index === i) ? array.length : array.length - Math.abs(index - i)));
-
-const displayItems = (item, index, active) => {
-    const zIndex = getZindex([...$items], active)[index];
-    item.style.setProperty('--zIndex', zIndex);
-    item.style.setProperty('--active', (index - active) / $items.length);
-};
-
-/*--------------------
-  Animate (Fixed: Floating Point Error)
---------------------*/
-const animate = () => {
-    progress = Math.max(0, Math.min(progress, 100));
-    // FIX: Add 1e-6 (epsilon) for correct rounding
-    active = Math.floor((progress / 100 * ($items.length - 1)) + 1e-6); 
-    $items.forEach((item, index) => displayItems(item, index, active));
-};
-animate();
-
-/*--------------------
-  Click / Interaction Logic (Fixed: Snapping and Links)
---------------------*/
-$items.forEach((item, i) => {
-    item.addEventListener('click', (e) => {
-        // 1. If dragging, prevent the link/snap and stop
-        if (isDragging) {
-            e.preventDefault(); 
-            return;
-        }
-
-        // 2. Check if this item is already the active center one
-        if (active === i) {
-            // It is the center item: Allow the <a> tag to fire 
-            return; 
-        } else {
-            // 3. If not active, prevent the link and snap it to center
-            e.preventDefault(); // Stop the <a> tag from navigating
+        <section class="about-section">
+            <div class="about-section-cont">
+                <div class="about-cont">
+                    <p class="about-text"> Hey! I’m Gabriel! I’m a soon graduating college student from Essex, focused on costume, cosplay, fashion, prop, and textiles design.
+</p>
+                </div>
+                <div class="about-img-cont">
+                    <img class="about-img" src="assets/Profile Image HT2.png">
+                </div>
+            </div>
             
-            if ($items.length > 1) {
-                progress = (i / ($items.length - 1)) * 100;
-                animate();
-            }
-        }
-    });
-});
-
-/*--------------------
-  Mouse/Touch Handlers
---------------------*/
-const handleMouseMove = (e) => {
-    if (!isDown) return;
-
-    const x = e.clientX || (e.touches && e.touches[0].clientX) || 0;
+        </section>
     
-    // Check if the movement is a drag (10px threshold)
-    if (Math.abs(x - startX) > 10) {
-        isDragging = true;
-    }
+    
+        <script>
 
-    // Only update progress if we are actually dragging
-    if (isDragging) {
-        const mouseProgress = (x - startX) * speedDrag;
-        progress = progress + mouseProgress;
-        startX = x;
-        animate();
-    }
-};
+            const cube = $("#cube");
 
-const handleMouseDown = e => {
-    isDown = true;
-    isDragging = false; 
-    startX = e.clientX || (e.touches && e.touches[0].clientX) || 0;
-};
+            /*--------------------
+            Cube Follower Logic
+            --------------------*/
+            // 1. GLOBAL Mouse Movement
+            $(document).on("mousemove", function (e) {
+                cube.css({
+                    transform: `translate(${e.pageX}px, ${e.pageY}px) translate(-50%, -50%)`
+                });
+            });
 
-const handleMouseUp = () => {
-    isDown = false;
-};
+            // 2. Hover Enter
+            $(".hover-area").on("mouseenter", function () {
+                let projectTitle = $(this).data("label");
+                cube.text(projectTitle);
+                cube.addClass("active");
+            });
 
-/*--------------------
-  Listeners (Fixed: Removed mousewheel)
---------------------*/
-document.addEventListener('mousedown', handleMouseDown);
-document.addEventListener('mousemove', handleMouseMove);
-document.addEventListener('mouseup', handleMouseUp);
+            // 3. Hover Leave
+            $(".hover-area").on("mouseleave", function () {
+                cube.removeClass("active");
+                setTimeout(() => {
+                    if (!cube.hasClass("active")) cube.text(""); 
+                }, 300);
+            });
 
-document.addEventListener('touchstart', handleMouseDown);
-document.addEventListener('touchmove', handleMouseMove);
-document.addEventListener('touchend', handleMouseUp);
-</script>
-</body>
+        </script>
+    </body>
 
 </html>

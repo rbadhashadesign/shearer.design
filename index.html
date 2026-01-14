@@ -12,7 +12,7 @@
 <body>
     <header>
         <div class="header-cont">
-            <p class="headtext-1">Gabriel Shearer</p>
+            <p class="headtext-1 hover-area" data-label="Hey." onclick='window.location.href="#hero"'>Gabriel Shearer</p>
             <p class="headtext-1 hover-area" data-label="About Me." onclick='window.location.href="about.html"' >About Me.</p>
         </div>
    </header>
@@ -20,7 +20,7 @@
     <div id="cube"> 
     </div>
 </div>
-   <section class="hero">
+   <section class="hero" id="hero">
         <div class="hero-img-cont">
             <video id="heroVideo" autoplay muted loop playsinline class="hero-img" draggable="false" src="./assets/BATARANGS_FOR_DEADLINE 2.mp4"></video>
         </div>
@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="carousel-cont">
-            <div class="carousel">
+            <div class="carousel" id="projects">
 
 
                 <div class="carousel-item hover-area" data-label="Coming Soon.">
@@ -91,19 +91,19 @@
                 
             </div>
         </div>
-             <div class="footer-cont">
-                <div class="footer-text">
-                    <p class="footer-text-1">Designed by Gabriel Shearer &</p><p data-label="Visit." class="footer-text-1 hover-area" onclick='window.location.href="https://glued.studio/"'> &nbsp; GluedStudio</p>
-                </div>
-                <div class="footer-text">
-                    <p class="footer-text-1">Built by</p><p class="footer-text-1 hover-area" data-label="Visit." onclick='window.location.href="https://glued.studio/"'> &nbsp; GluedStudio</p>
-                </div>
-                <div class="footer-text">
-                    <p class="footer-text-1">© 2026 Gabriel Shearer | All Rights Reserved.</p>
-                </div>
-            </div>
+        <div class="footer-cont" id="footer">
+        <div class="footer-text">
+            <p class="footer-text-1">Designed by Gabriel Shearer &</p><p data-label="Visit." class="footer-text-1 hover-area" onclick='window.location.href="https://glued.studio/"'> &nbsp; GluedStudio</p>
         </div>
+        <div class="footer-text">
+            <p class="footer-text-1">Built by</p><p class="footer-text-1 hover-area" data-label="Visit." onclick='window.location.href="https://glued.studio/"'> &nbsp; GluedStudio</p>
+        </div>
+        <div class="footer-text">
+            <p class="footer-text-1">© 2026 Gabriel Shearer | All Rights Reserved.</p>
+        </div>
+    </div>
    </section>
+   
  
    <script>
 
