@@ -162,7 +162,6 @@ header {
 
 .about-section {
     background-color: #efefef;
-    height: 300vh;
     font-family: 'Satoshi', sans-serif;
     font-weight: 100;
     font-size: 0.75vw;
@@ -243,4 +242,38 @@ header {
     position: relative;
     align-items: center;
     width: 60vw;
+}
+
+
+
+
+
+
+
+
+
+.footer-cont {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    bottom: 0;
+    right: 0;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    align-items: flex-end;
+    color: black;
+    font-family: 'Satoshi';
+}
+
+.footer-text {
+  align-self: flex-end;
+  display: flex;
+    font-weight: 100;
+    color: black;
+    margin-right: 1rem;
+}
+
+.footer-text-1 {
+    font-size: 0.75vw;
+    margin: 0;
 }

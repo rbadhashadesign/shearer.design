@@ -482,8 +482,7 @@ footer {
     position: absolute;
     flex-direction: column;
     bottom: 0;
-    width: 100vw;
-    padding-right: 1rem;
+    right: 0;
     padding-bottom: 1rem;
     align-items: flex-end;
     color: black;
