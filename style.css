@@ -90,10 +90,6 @@ img {
     pointer-events: none;
 }
 
-div {
-    font-family: 'Tissot Sans';
-}
-
 @font-face {
     font-family: 'Tissot Sans';
     src: url('/assets/fonts/TissotSans-Regular.eot');
@@ -104,6 +100,11 @@ div {
     font-weight: normal;
     font-style: normal;
     font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi', sans-serif;
+  src:url('https://fonts.cdnfonts.com/css/satoshi');
 }
 
 
@@ -139,9 +140,8 @@ header {
 }
 
 .headtext-1 {
-  z-index: 10000;
-  font-size: 1.5rem;
-  font-weight: 1000;
+    font-family: 'Tissot Sans';
+    z-index: 10000;
 }
 
 .hero {
@@ -214,7 +214,7 @@ header {
 }
 
 h2 {
-    font-family: 'Satoshi', sans-serif;
+    font-family: 'Satoshi';
     font-weight: 100;
     font-size: 0.75vw;
 }
@@ -232,7 +232,6 @@ h2 {
 /* CAROUSEL */
 
 .carousel-cont {
-  font-family: 'Tissot Sans';
     font-weight: 1000;
   background: #efefef;
   height: 100vh;
@@ -246,12 +245,13 @@ h2 {
   height: 100vh;
   width: 100vw;
   pointer-events: none;
+    font-family: 'Tissot Sans';
 }
 
 .carousel-item {
   --items: 5;
-  --width: clamp(150px, 30vw,  300px);
-  --height: clamp(200px, 40vw,  400px);
+  --width: clamp(150px, 300px,  30vh);
+  --height: clamp(200px, 400px,  40vh);
   --x: calc(var(--active) * 1000%);
   --y: calc(var(--active) * -500%);
   --rot: calc(var(--active) * 0deg);
@@ -487,12 +487,12 @@ footer {
     padding-bottom: 1rem;
     align-items: flex-end;
     color: black;
+    font-family: 'Satoshi';
 }
 
 .footer-text {
   align-self: flex-end;
   display: flex;
-    font-family: 'Tissot Sans';
     font-weight: 100;
     color: black;
     margin-right: 1rem;

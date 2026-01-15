@@ -87,16 +87,6 @@ img {
     box-sizing: border-box;
 }
 
-p {
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-}
-
-div {
-    font-family: 'Tissot Sans';
-}
 
 @font-face {
     font-family: 'Tissot Sans';
@@ -110,12 +100,30 @@ div {
     font-display: swap;
 }
 
+@font-face {
+  font-family: 'Satoshi', sans-serif;
+  src:url('https://fonts.cdnfonts.com/css/satoshi');
+}
+
+p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
 
 h1 {
     font-family: 'Tissot Sans';
     font-weight: 1000;
     font-size: 100%;
     letter-spacing: -3pt;
+}
+
+h2 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
 }
 
 header {
@@ -143,7 +151,8 @@ header {
 }
 
 .headtext-1 {
-  z-index: 10000;
+    font-family: 'Tissot Sans';
+    z-index: 10000;
 }
 
 
@@ -153,6 +162,10 @@ header {
 
 .about-section {
     background-color: #efefef;
+    height: 300vh;
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 100;
+    font-size: 0.75vw;
 }
 
 .about-section-cont {
@@ -167,14 +180,24 @@ header {
 }
 
 .about-cont {
+    display: flex;
+    flex-direction: column;
     position: relative;
+    align-items: center;
     width: 100%;
+}
+
+.about-title {
+    width: 40vw;
+    font-family: 'Tissot Sans';
+    font-weight: 800;
+    font-size: 8vw;
+    letter-spacing: -0.9vw;
+    margin-block: -0.7vw;
 }
 
 .about-text {
     width: 40vw;
-    align-self: center;
-    justify-self: center;
     font-size: 0.75vw;
 }
 
