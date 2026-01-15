@@ -502,3 +502,40 @@ footer {
     font-size: 0.75vw;
     margin: 0;
 }
+
+
+@media screen and (max-width: 1000px) {
+
+   #cube {
+     display: none;
+   }
+
+   #cube.active {
+      display: none;
+   }
+
+   .hero-type {
+    width: 80vw;
+    height: auto;
+}
+
+.g-signature {
+  margin-top: 1rem;
+  width: 10.5rem;
+}
+.carousel-item {
+  --width: clamp(500px, 50vw,  500px);
+  --height: clamp(800px, 65vw,  800px);
+  --x: calc(var(--active) * 600%);
+  --y: calc(var(--active) * -0%);
+  --rot: calc(var(--active) * 0deg);
+  --opacity: calc(var(--zIndex) / var(--items) * 3 - 2.1);
+  margin: calc(var(--height) * -0) 0 0 calc(var(--width) * -0.5);
+  top: 36%;
+  left: 50%;
+}
+
+}
+
+
+
