@@ -1,0 +1,90 @@
+/* --- ABOUT PAGE RESPONSIVE STYLES --- */
+
+@media screen and (max-width: 1000px) {
+  
+  /* 1. Consistency: Hide the custom cursor and adjust header/footer */
+  #cube, 
+  #cube.active {
+    display: none;
+  }
+
+  header {
+    height: 4.5rem;
+  }
+
+  .header-cont {
+    font-size: 2.5rem;
+    width: 100%;
+    margin-inline: 0;
+    padding-inline: 1rem;
+  }
+
+  .footer-text-1 {
+    font-size: 2.5vw; /* Slightly larger for readability */
+  }
+
+  /* 2. Main Layout: Stack text and images vertically */
+  .about-section-cont-1 {
+    flex-direction: column-reverse;
+    height: 95vh;
+    padding: 2rem 1.5rem;
+    justify-content: start;
+    align-items: baseline;
+    align-content: baseline;
+  }
+
+  .about-cont-1 {
+    width: 100%;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+  }
+
+  /* 3. Typography: Scale fonts for mobile */
+  .about-title {
+    width: 100%;
+    font-size: 20vw; /* Significantly larger on mobile */
+    letter-spacing: -2.2vw;
+  }
+
+  .about-text {
+    width: 100%;
+    font-size: 2.5vw; /* Much larger than the desktop 0.75vw */
+    line-height: 1.4;
+  }
+
+  /* 4. Images: Make images full width */
+  .about-img-cont-1 {
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .about-img {
+    width: 100%;
+    height: auto;
+    max-height: 70vh; /* Prevent image from taking over the whole screen */
+  }
+
+  /* 5. Second Section (e.g., 3D Print Video area) */
+  .about-section-cont-2 {
+    flex-direction: column;
+    height: 98vh;
+    padding: 2rem 1.5rem;
+    justify-content: start;
+    align-items: baseline;
+    align-content: baseline;
+  }
+
+  .about-img-cont-2,
+  .about-cont-2 {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .print-vid {
+    width: 100%;
+    height: auto;
+  }
+}

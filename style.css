@@ -205,8 +205,10 @@ header {
     flex-direction: column;
     position: relative;
     height: 30vh;
+    width: 35vw;
     justify-content: end;
     align-items: center;
+    padding-inline: 1rem;
 }
 
 .self-intro {
