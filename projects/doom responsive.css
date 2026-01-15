@@ -108,7 +108,7 @@
 
   .bw-text {
     width: 100%;
-    font-size: 4.5vw; /* Much larger than 0.75vw for readability */
+    font-size: 2.5vw; /* Much larger than 0.75vw for readability */
     line-height: 1.4;
   }
 
@@ -119,6 +119,6 @@
   }
 
   .footer-text-1 {
-    font-size: 2.8vw;
+    font-size: 2.5vw;
   }
 }
