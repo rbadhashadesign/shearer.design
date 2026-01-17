@@ -54,22 +54,28 @@ body {
 /* The Expanded State */
 #cube.active {
     height: 50px;
-    width: auto; /* Allows it to grow to fit text */
+    width: auto;
     background: black;
-    align-items: center;
+    
+    /* 1. Flex Centering */
+    display: flex;
+    align-items: center; 
     justify-content: center;
+    
     color: white;
     font-size: 3rem;
+    
+    /* 2. Standardize the line-box */
+    line-height: 1; 
+    
+    /* 3. Remove OS-specific "fixes" */
+    padding-top: 0; 
     padding-inline: 0.6rem;
     padding-right: 1rem;
-    padding-top: 0.5rem;
+    
     letter-spacing: -0.4rem;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-    cursor: none;
     border-style: none;
+    cursor: none;
 }
 
 
