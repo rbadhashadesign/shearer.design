@@ -13,7 +13,7 @@
   }
 
   .header-cont {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     width: 100%;
     margin-inline: 0;
     padding-inline: 1rem;
@@ -25,24 +25,30 @@
   }
 
   .hero-background {
-    height: 40vh; /* Reduced height for mobile balance */
+    height: 80vh; /* Reduced height for mobile balance */
   }
 
   .hero-img {
     top: 0; /* Reset the offset from doomstyle.css */
     height: 100%;
-    width: 100%;
-    object-position: center;
+    width: 200%;
+    left: -50%;
+    object-position: center 20%;
   }
 
   .hero-title-cont {
-    height: auto;
-    padding: 3rem 1rem;
+    height: 20vh;
+    padding: 1rem 1rem;
     justify-content: flex-start;
+    align-content: center;
+  }
+
+  .hero-title {
+    align-content: flex-end;
   }
 
   .hero-title-cont h1 {
-    font-size: 16vw; /* Scale from 36.5vh to viewport width */
+    font-size: 18vw; /* Scale from 36.5vh to viewport width */
     letter-spacing: -1vw;
     bottom: 0;
     line-height: 1;
@@ -52,7 +58,7 @@
   .bw-main-cont-1 {
     flex-direction: column; /* Stack image and text */
     height: auto;
-    padding: 3rem 1.5rem;
+    padding: 1.5rem 1.5rem;
   }
 
   .bw-img-cont-1 {
@@ -80,14 +86,30 @@
   .bw-trio-img-cont-1 {
     flex-direction: column; /* Stack the three images */
     height: auto;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   .trio-img-1, .trio-img-2, .trio-img-3 {
-    width: 100%;
+    width: 70%;       /* Retains a wide horizontal footprint */
+    aspect-ratio: 1 / 1.2; 
     height: auto;
-    max-height: 50vh;
-    align-self: center; /* Remove the staggered alignment for mobile */
+    /* THE FIX: 'cover' crops the image to fill the box without squishing */
+    object-fit: cover; 
+    
+    /* Keeps the images looking sharp on high-res mobile screens */
+    object-position: center;
+  }
+
+  .trio-img-1 {
+    align-self: flex-start;
+  }
+
+   .trio-img-2 {
+    align-self: center;
+  }
+
+   .trio-img-3 {
+    align-self: flex-end;
   }
 
   .bw-text-cont-2 {

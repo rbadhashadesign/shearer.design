@@ -61,23 +61,29 @@ body {
 
 /* The Expanded State */
 #cube.active {
-    height: 50px;
-    width: auto; /* Allows it to grow to fit text */
-    background: black;
-    align-items: center;
-    justify-content: center;
+    
     color: white;
     font-size: 3rem;
-    padding-inline: 0.6rem;
-    padding-right: 1rem;
-    padding-top: 0.5rem;
+    
+    
     letter-spacing: -0.4rem;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-    cursor: none;
     border-style: none;
+    cursor: none;
+    height: 50px;
+    width: auto;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Reset vertical constraints */
+    line-height: 1;
+    padding-top: 0; 
+    padding-inline: 0.8rem;
+
+    /* Manually normalize the specific font's drift */
+    /* This moves the text visually without changing the box size */
+    transform: translate(-50%, -50%);
 }
 
 
@@ -117,6 +123,21 @@ p, h1, h2 {
 h1 {
     font-family: 'Tissot Sans', sans-serif;
     font-weight: 1000;
+    letter-spacing: -5vh;
+    color: white;
+    
+    /* THE NORMALIZER */
+    line-height: 0.7;        /* Collapses the erratic OS padding */
+    display: flex;
+    align-items: center;    /* Standardizes the baseline centering */
+    margin: 0;
+    padding: 0;
+    
+    /* THE OFFSET */
+    /* Adjust this % until it looks perfect. 
+       Because line-height is locked at 0.7, this will now 
+       render nearly identically on Mac and Windows. */
+    transform: translateY(35%);
 }
 
 /* 5. Header */
@@ -176,14 +197,14 @@ header {
     position: relative;
     height: 40vh;
     width: 100%;
-    background-color: black;
+    background-color: white;
     overflow: hidden;
 }
 
 .hero-title-cont h1 {
     font-size: 36.5vh;
     letter-spacing: -5vh;
-    color: white;
+    color: black;
     bottom: -6vh;
     position: relative;
 }
