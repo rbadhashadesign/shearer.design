@@ -1,5 +1,9 @@
 @media screen and (max-width: 1000px) {
 
+  html {
+    cursor: auto;
+  }
+
   #cube {
     display: none;
   }

@@ -1,6 +1,10 @@
 /* --- ABOUT PAGE RESPONSIVE STYLES --- */
 
 @media screen and (max-width: 1000px) {
+
+  html {
+    cursor: auto;
+  }
   
   /* 1. Consistency: Hide the custom cursor and adjust header/footer */
   #cube, 
