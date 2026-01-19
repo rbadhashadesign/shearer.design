@@ -219,15 +219,22 @@ header {
     width: 100%;
     background-color: #efefef;
     align-items: center;
+    gap: 6rem;
+    margin-block: 1rem;
 }
 
 .bw-main-cont-1 {
     position: relative;
     display: flex;
-    width: 80vw;
-    height: 100vh; /* Set to viewport height */
-    padding: 1rem; /* The 1rem padding you requested */
+    width: 60vw;
+    height: auto; /* Set to viewport height */
     align-items: center;
+    gap: 2rem;
+}
+
+.reversed {
+    flex-direction: row-reverse;
+    justify-content: right;
 }
 
 .bw-img-cont-1 {
@@ -237,33 +244,31 @@ header {
 }
 
 .bw-img-1 {
-    height: 100%; /* Ensure image is exactly height of container */
+    height: 60vh; /* Ensure image is exactly height of container */
     width: auto;
     object-fit: contain; /* Prevents image from being cut off */
 }
 
 .bw-text-cont-1 {
-    position: absolute;
+    position: relative;
     display: flex;
-    width: 100%;
+    width: auto;
     flex-direction: column;
-    align-items: last baseline;
-    align-self: flex-end;
-    justify-self: last baseline;
+    align-items: center;
 }
 
 .bw-title {
-    width: 40vw;
+    width: 30vw;
     font-family: 'Tissot Sans', sans-serif;
     font-weight: 800;
-    font-size: 8vw;
-    letter-spacing: -0.9vw;
-    margin-block: -0.7vw;
+    font-size: 3vw;
+    letter-spacing: -0.3vw;
+    margin-block: -0.3vw;
 }
 
 .bw-text {
     font-family: 'Satoshi', sans-serif;
-    width: 40vw;
+    width: 30vw;
     font-size: 0.75vw;
 }
 
@@ -271,16 +276,16 @@ header {
 .bw-main-cont-2 {
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: center;
-    height: 90vh;
-    width: 100%;
-    padding-inline: 1rem;
+    align-items: center;
+    height: auto;
+    width: 60vw;
 }
 
 .bw-trio-img-cont-1 {
     position: relative;
-    height: 70vh;
+    height: 65vh;
     display: flex;
     column-gap: 1rem;
     justify-content: center;
@@ -288,7 +293,7 @@ header {
 
 .trio-img-1, .trio-img-2, .trio-img-3 {
     height: auto;
-    width: 33vh;
+    width: 30vh;
     object-fit: contain;
 }
 
@@ -296,46 +301,50 @@ header {
 .trio-img-2 { align-self: center; }
 .trio-img-3 { align-self: flex-start; }
 
+/* Add this to archivestyle.css to ensure desktop ignores the new wrapper */
+.trio-slider {
+    display: contents;
+}
+
 .bw-text-cont-2 {
-    position: absolute;
+    position: relative;
     display: flex;
     flex-direction: column;
-    flex: 1; /* Takes up remaining width */
-    margin: 1rem;
+    width: 100%;
     left: 0;
-    bottom: 0;
+    top: 0vh;
+    text-align: left;
 }
 
 /* 9. Grid Section (03 Section) - Desktop */
 .bw-main-cont-3 {
-    height: 100vh;
+    height: auto;
     position: relative;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    padding: 1rem;
+    width: 60vw;
     background-color: #efefef;
+    align-items: center;
+    gap: 2rem;
 }
 
 .grid-into-cont {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: auto;
+    gap: 1rem;
 }
 
 .bw-grid-img-cont-1 {
     display: flex;
+    flex-direction: column;
     gap: 1rem; 
     width: auto;
     align-self: center;
-    margin-bottom: 1rem;
 }
 
 .grid-img {
-    width: 33vh;
+    width: 20vh;
     aspect-ratio: 1 / 1.2; 
     height: auto;
     object-fit: cover; 

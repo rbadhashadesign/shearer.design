@@ -54,62 +54,72 @@
     bottom: 0;
   }
 
-  /* 3. Main Content 1 (01 Section) */
-  .bw-main-cont-1 {
-    flex-direction: column; /* Stack image and text */
-    height: auto;
-    padding: 1.5rem 1.5rem;
-  }
+  .bw-main-cont-1, 
+    .bw-main-cont-2, 
+    .bw-main-cont-3 {
+        width: 100% !important;
+        height: auto !important;
+        padding: 4rem 1.5rem !important;
+        gap: 2rem !important;
+        flex-direction: column !important; /* Forces vertical stack even if .reversed */
+    }
 
-  .bw-img-cont-1 {
-    width: 100%;
-    height: auto;
-    margin-bottom: 2rem;
-  }
+    /* 4. Section 01 & Reversed Logic */
+    .bw-img-cont-1 {
+        width: 100%;
+        height: auto;
+    }
 
-  .bw-img-1 {
-    width: 100%;
-    height: auto;
-  }
+    .bw-img-1 {
+        width: 100%;
+        height: auto;
+        max-height: 60vh;
+        object-fit: cover;
+    }
 
-  .bw-text-cont-1 {
-    width: 100%;
-    align-items: flex-start;
-  }
+    .bw-text-cont-1 {
+        width: 100% !important;
+        align-items: flex-start !important;
+    }
 
-  /* 4. Main Content 2 (02 Trio Section) */
-  .bw-main-cont-2 {
-    height: auto;
-    padding: 3rem 1.5rem 8rem 1.5rem; /* Large bottom padding for absolute footer */
-  }
-
+    /* 5. Swippable Trio Section */
   .bw-trio-img-cont-1 {
-    flex-direction: column; /* Stack the three images */
-    height: auto;
-    gap: 1.5rem;
+    width: 100vw !important; /* Full width for swiping */
+    margin-left: -1.5rem;   /* Offsets the main container padding */
+    height: auto !important;
+    overflow: hidden;
+  }
+
+  .trio-slider {
+    display: flex !important;
+    flex-direction: row !important; /* Horizontal for swiping */
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory; /* Enables the "snap" effect */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Smooth momentum on iOS */
+    gap: 1rem;
+    padding-inline: 15vw; /* Centers the middle image on load */
+    scrollbar-width: none; /* Hides scrollbar on Firefox */
+  }
+
+  .trio-slider::-webkit-scrollbar {
+    display: none; /* Hides scrollbar on Chrome/Safari */
   }
 
   .trio-img-1, .trio-img-2, .trio-img-3 {
-    width: 70%;       /* Retains a wide horizontal footprint */
-    aspect-ratio: 1 / 1.2; 
-    height: auto;
-    /* THE FIX: 'cover' crops the image to fill the box without squishing */
-    object-fit: cover; 
-    
-    /* Keeps the images looking sharp on high-res mobile screens */
-    object-position: center;
+    min-width: 70vw !important; /* Forces images to be large enough to swipe */
+    width: 70vw !important;
+    height: 50vh !important;
+    object-fit: cover !important;
+    scroll-snap-align: center; /* Snap point */
+    align-self: center !important;
+    flex-shrink: 0; /* Prevents images from squishing */
   }
 
-  .trio-img-1 {
-    align-self: flex-start;
-  }
-
-   .trio-img-2 {
-    align-self: center;
-  }
-
-   .trio-img-3 {
-    align-self: flex-end;
+  /* Force starting position to the middle image */
+  /* This works by targeting the container and relies on the padding-inline above */
+  .trio-slider {
+    scroll-padding: 0 15vw;
   }
 
   .bw-text-cont-2 {
@@ -120,72 +130,46 @@
     bottom: 0;
   }
 
-  /* 5. Typography Scaling */
-  .bw-title {
-    width: 100%;
-    font-size: 20vw; /* Bold impact for "01" and "02" */
-    letter-spacing: -1.5vw;
-    margin-bottom: 1rem;
-  }
+ /* 6. Section 03 (Grid) */
+    .grid-into-cont {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        gap: 1.5rem;
+    }
 
-  .bw-text {
-    width: 100%;
-    font-size: 2.5vw; /* Much larger than 0.75vw for readability */
-    line-height: 1.4;
-  }
+    .bw-grid-img-cont-1 {
+        display: contents !important; /* Flattens nested divs into the grid */
+    }
 
-  .bw-main-cont-3 {
-    height: auto;
-    padding: 3rem 1.5rem 8rem 1.5rem; 
-  }
+    .grid-img {
+        width: 100% !important;
+        aspect-ratio: 1 / 1;
+        height: auto !important;
+    }
 
-.grid-into-cont {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    gap: 0.75rem;
-    height: auto;
-  }
+    /* 7. Shared Typography Scaling */
+    .bw-title {
+        width: 100% !important;
+        font-size: 15vw !important;
+        letter-spacing: -1vw !important;
+        margin-bottom: 0.5rem;
+    }
 
-  /* The "Secret Sauce": Dissolve the two divs so all images merge */
-  .bw-grid-img-cont-1 {
-    display: contents !important;
-  }
+    .bw-text {
+        width: 100% !important;
+        font-size: 2.5vw !important; /* Increased for mobile readability */
+        line-height: 1.5;
+    }
 
-  .grid-img {
-    width: 100%;
-    aspect-ratio: 1 / 1; /* Square crop */
-    height: auto;
-    object-fit: cover;
-  }
+    /* 8. Footer Styling */
+    .footer-cont {
+        height: 50vh !important;
+        align-items: flex-start !important;
+        justify-content: flex-end;
+    }
 
-  /* Ensure the text and footer span across both grid columns */
-  .bw-text-cont-2,
-  .footer-cont {
-    grid-column: 1 / span 2; 
-    display: flext;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 2rem;
-  }
-
-
-
-
-
-
-
-
-
-
-
-  /* 6. Footer Scaling */
-  .footer-cont {
-    width: 100%;
-    padding: 1.5rem;
-  }
-
-  .footer-text-1 {
-    font-size: 2.5vw;
-  }
-
-  }
+    .footer-text-1 {
+        font-size: 3.5vw !important;
+    }
+}
