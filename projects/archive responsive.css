@@ -37,7 +37,7 @@
     height: 100%;
     width: 200%;
     left: -50%;
-    object-position: center 20%;
+    object-position: center 10%;
   }
 
   .hero-title-cont {
@@ -50,13 +50,14 @@
   .hero-title-cont h1 {
     font-size: 20vw; /* Scale from 36.5vh to viewport width */
     letter-spacing: -2vw;
-    transform: translateY(0%);
+    transform: translateY(-30%);
     bottom: 0;
   }
 
   .bw-main-cont-1, 
     .bw-main-cont-2, 
-    .bw-main-cont-3 {
+    .bw-main-cont-3,
+    .bw-main-cont-4 {
         width: 100% !important;
         height: auto !important;
         padding: 4rem 1.5rem !important;
@@ -161,6 +162,23 @@
         font-size: 2.5vw !important; /* Increased for mobile readability */
         line-height: 1.5;
     }
+
+    .catalogue {
+      height: 100vh;
+    }
+
+
+      .carousel-item {
+    --width: clamp(500px, 50vw,  500px);
+    --height: clamp(800px, 65vw,  800px);
+    --x: calc(var(--active) * 600%);
+    --y: calc(var(--active) * -0%);
+    --rot: calc(var(--active) * 0deg);
+    --opacity: calc(var(--zIndex) / var(--items) * 3 - 2.1);
+    margin: calc(var(--height) * -0) 0 0 calc(var(--width) * -0.5);
+    top: 36%;
+    left: 50%;
+  }
 
     /* 8. Footer Styling */
     .footer-cont {

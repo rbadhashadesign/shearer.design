@@ -213,18 +213,29 @@ header {
 
 /* 7. Work/About Layout (1rem Padding, 100vh Image, No Cut-off) */
 .backup-work {
+    display: flex;
+    flex-direction: column;
     position: relative;
     width: 100%;
     background-color: #efefef;
+    align-items: center;
+    gap: 6rem;
+    margin-top: 1rem;
 }
 
 .bw-main-cont-1 {
     position: relative;
     display: flex;
     width: 100%;
-    height: 100vh; /* Set to viewport height */
-    padding: 1rem; /* The 1rem padding you requested */
+    height: 100vh;
     align-items: center;
+    gap: 2rem;
+    padding-inline: 1rem;
+}
+
+.reversed {
+    flex-direction: row-reverse;
+    justify-content: right;
 }
 
 .bw-img-cont-1 {
@@ -245,16 +256,16 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex: 1; /* Takes up remaining width */
+    flex: 1;
 }
 
 .bw-title {
     width: 40vw;
     font-family: 'Tissot Sans', sans-serif;
     font-weight: 800;
-    font-size: 8vw;
-    letter-spacing: -0.9vw;
-    margin-block: -0.7vw;
+    font-size: 5vw;
+    letter-spacing: -0.5vw;
+    margin-block: -0.3vw;
 }
 
 .bw-text {
@@ -262,6 +273,10 @@ header {
     width: 40vw;
     font-size: 0.75vw;
 }
+
+
+
+
 
 /* 8. Trio Images Section */
 .bw-main-cont-2 {
@@ -292,19 +307,12 @@ header {
 .trio-img-2 { align-self: center; }
 .trio-img-3 { align-self: flex-start; }
 
-.bw-text-cont-2 {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    flex: 1; /* Takes up remaining width */
-    margin: 1rem;
-    left: 0;
-    bottom: 0;
+/* Add this to archivestyle.css to ensure desktop ignores the new wrapper */
+.trio-slider {
+    display: contents;
 }
 
-/* 9. Grid Section (03 Section) - Desktop */
-.bw-main-cont-3 {
-    height: 100vh;
+.bw-text-cont-2 {   
     position: relative;
     display: flex;
     flex-direction: column;
@@ -314,38 +322,351 @@ header {
     background-color: #efefef;
 }
 
+
+
+
+
+
+/* 9. Grid Section (03 Section) - Desktop */
+.bw-main-cont-3 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    width: 100%;
+    padding-inline: 1rem;
+}
+
 .grid-into-cont {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
+    gap: 1rem;
 }
 
 .bw-grid-img-cont-1 {
     display: flex;
+    flex-direction: row;
     gap: 1rem; 
     width: auto;
     align-self: center;
-    margin-bottom: 1rem;
+}
+
+.hor-grid-img {
+    flex-direction: row;
 }
 
 .grid-img {
     width: 33vh;
-    aspect-ratio: 1 / 1.2; 
+    aspect-ratio: 1 / 1.2;
     height: auto;
-    object-fit: cover; 
+    object-fit: cover;
     object-position: center;
 }
 
-/* Normalizing the Title for Section 03 */
 .bw-text-cont-3 {
-    margin-top: 2rem;
+    position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem;
+    background-color: #efefef;
 }
 
 
+
+
+
+
+
+
+.catalogue {
+    display:flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    overflow: hidden;
+    background-color: #efefef;
+}
+
+.self-intro-cont {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 30vh;
+    width: 35vw;
+    justify-content: end;
+    align-items: center;
+    padding-inline: 1rem;
+}
+
+.self-intro {
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Satoshi';
+    font-weight: 100;
+    font-size: 0.75vw;
+}
+
+.g-signature {
+  margin-top: 1rem;
+  width: 5vw;
+}
+
+
+
+
+
+
+/* CAROUSEL */
+
+.car-img {
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.catalogue {
+    height: 130vh;
+    display: flex;
+    justify-content: end;
+
+}
+
+.carousel-cont {
+    font-weight: 1000;
+  background: #efefef;
+  height: 100vh;
+  position: relative;
+  cursor: none;
+}
+
+.carousel {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  width: 100vw;
+  pointer-events: none;
+    font-family: 'Tissot Sans';
+}
+
+.carousel-item {
+  --items: 5;
+  --width: clamp(15vh, 21vh,  30vh);
+  --height: clamp(20vh, 30vh,  40vh);
+  --x: calc(var(--active) * 1000%);
+  --y: calc(var(--active) * -500%);
+  --rot: calc(var(--active) * 0deg);
+  --opacity: calc(var(--zIndex) / var(--items) * 3 - 1.6);
+  overflow: hidden;
+  position: absolute;
+  z-index: var(--zIndex);
+  width: var(--width);
+  height: var(--height);
+  margin: calc(var(--height) * -0.5) 0 0 calc(var(--width) * -0.5);
+  border-radius: 0px;
+  top: 50%;
+  left: 50%;
+  user-select: none;
+  transform-origin: 0% 100%;
+  box-shadow: 0 10px 50px 10px rgba(0, 0, 0, .5);
+  background: black;
+  pointer-events: all;
+  transform:  translate(var(--x), var(--y)) rotate(var(--rot)) ;
+  transition: transform 0.6s ease;
+
+}
+
+  .carousel-box {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 1s ease;
+    opacity: var(--opacity);
+
+    &:before {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .5)); */
+    }
+  }
+
+  .project-link {
+    cursor: none !important;
+}
+
+
+
+  /* TITLES */
+
+  .title1 {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    bottom: 20px;
+    left: 20px;
+    transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+    font-size: 2rem;
+  }
+
+  .title2 {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    bottom: 20px;
+    left: 20px;
+    transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+    font-size: 2rem;
+  }
+
+   .title3 {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    bottom: 0px;
+    left: 20px;
+    transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+    font-size: 5.6rem;
+    letter-spacing: -0.5rem;
+  }
+
+   .title4 {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    bottom: 0px;
+    left: 20px;
+    transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+    font-size: 5rem;
+    letter-spacing: -0.5rem;
+    mix-blend-mode: overlay;
+  }
+
+     .title5 {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    bottom: 200px;
+    left: -8px;
+    transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+    font-size: 7rem;
+    letter-spacing: -0.6rem;
+    line-height: 0.67;
+    mix-blend-mode: overlay;
+  }
+
+     .title6 {
+    position: absolute;
+    z-index: 1;
+    color: white;
+    bottom: -16px;
+    left: -10px;
+    transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+    font-size: 9rem;
+    letter-spacing: -0.9rem;
+    line-height: 0.62;
+    mix-blend-mode: overlay;
+  }
+
+     .title7 {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    bottom: 0px;
+    left: 20px;
+    transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+    font-size: 5.6rem;
+    letter-spacing: -0.5rem;
+  }
+
+     .title8 {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    bottom: 20px;
+    left: 20px;
+    transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+    font-size: 2rem;
+  }
+
+     .title9 {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    bottom: 20px;
+    left: 20px;
+    transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+    font-size: 2rem;
+  }
+
+       .title10 {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    bottom: 20px;
+    left: 20px;
+    transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+    font-size: 2rem;
+  }
+
+
+
+  .num {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    top: 10px;
+    left: 20px;
+    transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+    font-size: clamp(20px, 10vw, 80px);
+  }
+
+
+
+
+.layout {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 90px;
+    width: 10px;
+    height: 100%;
+    border: 1px solid #fff;
+    border-top: none;
+    border-bottom: none;
+    opacity: .15;
+  }
+}
 
 
 
@@ -353,16 +674,15 @@ header {
 
 
 .footer-cont {
-    z-index: 10000;
     display: flex;
-    position: relative;
+    position: absolute;
     flex-direction: column;
-    width: 100%;
-    height: 100vh;
-    padding: 1rem;
+    bottom: 0;
+    right: 0;
+    padding-bottom: 1rem;
     align-items: flex-end;
-    justify-content: flex-end;
-    font-family: 'Satoshi', sans-serif;
+    color: black;
+    font-family: 'Satoshi';
 }
 
 .footer-text {
@@ -370,12 +690,12 @@ header {
   display: flex;
     font-weight: 100;
     color: black;
+    margin-right: 1rem;
 }
 
 .footer-text-1 {
-    width: max-content;
-    text-wrap: nowrap;
     font-size: 0.75vw;
-    font-weight: 100;
-    color: black;
+    margin: 0;
 }
+
+
