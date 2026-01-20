@@ -259,8 +259,8 @@ h2 {
 
 .carousel-item {
   --items: 5;
-  --width: clamp(150px, 300px,  30vh);
-  --height: clamp(200px, 400px,  40vh);
+  --width: clamp(15vh, 21vh,  30vh);
+  --height: clamp(20vh, 30vh,  40vh);
   --x: calc(var(--active) * 1000%);
   --y: calc(var(--active) * -500%);
   --rot: calc(var(--active) * 0deg);
