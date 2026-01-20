@@ -50,7 +50,7 @@
   .hero-title-cont h1 {
     font-size: 20vw; /* Scale from 36.5vh to viewport width */
     letter-spacing: -2vw;
-    transform: translateY(-30%);
+    transform: translateY(-20%);
     bottom: 0;
   }
 
@@ -81,6 +81,7 @@
     .bw-text-cont-1 {
         width: 100% !important;
         align-items: flex-start !important;
+      margin: 3rem 0 0 0;
     }
 
     /* 5. Swippable Trio Section */
@@ -130,6 +131,9 @@
     left: 0;
     bottom: 0;
   }
+   .bw-text-cont-3 {
+    margin: 3rem 0 0 0;
+  }
 
  /* 6. Section 03 (Grid) */
     .grid-into-cont {
@@ -154,7 +158,8 @@
         width: 100% !important;
         font-size: 15vw !important;
         letter-spacing: -1vw !important;
-        margin-bottom: 0.5rem;
+        margin-block: 0.5rem;
+        line-height: 0.9
     }
 
     .bw-text {

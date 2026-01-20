@@ -50,7 +50,7 @@
   .hero-title-cont h1 {
     font-size: 20vw; /* Scale from 36.5vh to viewport width */
     letter-spacing: -2vw;
-    transform: translateY(-30%);
+    transform: translateY(-20%);
     bottom: 0;
   }
 
