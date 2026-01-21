@@ -1,0 +1,198 @@
+/* --- DOOMSLAYER PROJECT RESPONSIVE STYLES --- */
+
+@media screen and (max-width: 1000px) {
+
+  html {
+    cursor: auto;
+  }
+
+  /* 1. Consistency: Hide the custom cursor and adjust header */
+  #cube, 
+  #cube.active {
+    display: none !important;
+  }
+
+  header {
+    height: 4.5rem;
+  }
+
+  .header-cont {
+    font-size: 2.5rem;
+    width: 100%;
+    margin-inline: 0;
+    padding-inline: 1rem;
+  }
+
+  /* 2. Hero Section Adjustments */
+  .hero {
+    height: auto; /* Allow hero to fit content */
+  }
+
+  .hero-background {
+    height: 80vh; /* Reduced height for mobile balance */
+  }
+
+  .hero-img {
+    top: 0; /* Reset the offset from doomstyle.css */
+    height: 100%;
+    width: 200%;
+    left: -55%;
+    object-position: center 20%;
+  }
+
+  .hero-title-cont {
+    height: 20vh;
+    padding: 1rem 1rem;
+    justify-content: flex-start;
+    align-content: center;
+  }
+
+  .hero-title-cont h1 {
+    font-size: 20vw; /* Scale from 36.5vh to viewport width */
+    letter-spacing: -2vw;
+    transform: translateY(-20%);
+    bottom: 0;
+  }
+
+  .backup-work {
+    gap: 12rem;
+    margin-top: 0rem;
+  }
+
+  .bw-main-cont-1, 
+    .bw-main-cont-2, 
+    .bw-main-cont-3,
+    .bw-main-cont-4 {
+        width: 100% !important;
+        height: auto !important;
+        padding: 1.5rem !important;
+        gap: 2rem !important;
+        flex-direction: column !important; /* Forces vertical stack even if .reversed */
+    }
+
+    /* 4. Section 01 & Reversed Logic */
+    .bw-img-cont-1 {
+        width: 100%;
+        height: auto;
+    }
+
+    .bw-img-1 {
+        width: 100%;
+        height: auto;
+        max-height: 60vh;
+        object-fit: cover;
+    }
+
+    .bw-text-cont-1 {
+        width: 100% !important;
+        align-items: flex-start !important;
+    }
+
+    /* 5. Swippable Trio Section */
+  .bw-trio-img-cont-1 {
+    width: 100vw !important; /* Full width for swiping */
+    margin-left: -1.5rem;   /* Offsets the main container padding */
+    height: auto !important;
+    overflow: hidden;
+  }
+
+  .trio-slider {
+    display: flex !important;
+    flex-direction: row !important; /* Horizontal for swiping */
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory; /* Enables the "snap" effect */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Smooth momentum on iOS */
+    gap: 1rem;
+    padding-inline: 15vw; /* Centers the middle image on load */
+    scrollbar-width: none; /* Hides scrollbar on Firefox */
+  }
+
+  .trio-slider::-webkit-scrollbar {
+    display: none; /* Hides scrollbar on Chrome/Safari */
+  }
+
+  .trio-img-1, .trio-img-2, .trio-img-3 {
+    min-width: 70vw !important; /* Forces images to be large enough to swipe */
+    width: 70vw !important;
+    height: 50vh !important;
+    object-fit: cover !important;
+    scroll-snap-align: center; /* Snap point */
+    align-self: center !important;
+    flex-shrink: 0; /* Prevents images from squishing */
+  }
+
+  /* Force starting position to the middle image */
+  /* This works by targeting the container and relies on the padding-inline above */
+  .trio-slider {
+    scroll-padding: 0 15vw;
+  }
+
+  .bw-text-cont-2 {
+    position: relative; /* Change from absolute to relative to stack naturally */
+    width: 100%;
+    margin: 3rem 0 0 0;
+    left: 0;
+    bottom: 0;
+  }
+
+ /* 6. Section 03 (Grid) */
+    .grid-into-cont {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        gap: 1.5rem;
+    }
+
+    .bw-grid-img-cont-1 {
+        display: contents !important; /* Flattens nested divs into the grid */
+    }
+
+    .grid-img {
+        width: 100% !important;
+        aspect-ratio: 1 / 1;
+        height: auto !important;
+    }
+
+    /* 7. Shared Typography Scaling */
+    .bw-title {
+        width: 100% !important;
+        font-size: 15vw !important;
+        letter-spacing: -1vw !important;
+        margin-bottom: 0.5rem;
+    }
+
+    .bw-text {
+        width: 100% !important;
+        font-size: 2.5vw !important; /* Increased for mobile readability */
+        line-height: 1.5;
+    }
+
+    .catalogue {
+      height: 100vh;
+    }
+
+
+      .carousel-item {
+    --width: clamp(500px, 50vw,  500px);
+    --height: clamp(800px, 65vw,  800px);
+    --x: calc(var(--active) * 600%);
+    --y: calc(var(--active) * -0%);
+    --rot: calc(var(--active) * 0deg);
+    --opacity: calc(var(--zIndex) / var(--items) * 3 - 2.1);
+    margin: calc(var(--height) * -0) 0 0 calc(var(--width) * -0.5);
+    top: 36%;
+    left: 50%;
+  }
+
+    /* 8. Footer Styling */
+    .footer-cont {
+        height: 50vh !important;
+        align-items: flex-start !important;
+        justify-content: flex-end;
+    }
+
+    .footer-text-1 {
+        font-size: 3.5vw !important;
+    }
+}
