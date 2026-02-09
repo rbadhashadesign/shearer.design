@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Gabriel | About Me.</title>
+        <link rel="icon" href="assets/pageicon.png">
+        <link rel="stylesheet" href="about.css">
+        <link rel="stylesheet" href="about responsive.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <header>
+            <div class="header-cont">
+                <p class="headtext-1 hover-area" data-label="Home." onclick='window.location.href="https://shearer.design/"'>Gabriel Shearer</p>
+                <p class="headtext-1 hover-area" data-label="Projects." onclick='window.location.href="https://shearer.design/" '>Projects.</p>
+            </div>
+        </header>
+        <div id="container">
+            <div id="cube"> 
+            </div>
+        </div>
+        <section class="about-section">
+            <div class="about-section-cont-1">
+                <div class="about-cont-1">
+                    <h2 class="about-title">Hey!</h2>
+                    <p class="about-text">I'm Gabriel! I’m a soon to be college graduate from Essex, focused on costume, cosplay, fashion, prop, and textiles design.</p>
+                </div>
+                <div class="about-img-cont-1">
+                    <img class="about-img" src="assets/Profile Image HT2.png">
+                </div>
+            </div>
+            <div class="about-section-cont-2">
+                <div class="about-img-cont-2">
+                    <img class="print-vid" src="assets/MaskPrint.webp">
+                </div>
+                <div class="about-cont-2">
+                    <h2 class="about-title">My bit</h2>
+                    <p class="about-text"> It is my dream to study and build a career in the industry as a prop and costume designer for TV, film, and theatre.
+                        
+                        <br><br>I’ve been creating costumes ever since I can remember, starting with creating a Venom and Predator mask out of household materials, including but definitely not limited to cardboard, paint, and glue. My love for this craft has only grown over these years, leading me on to using more modern mediums and technologies such as 3D printing. This has enabled me to design, build and exhibit at events including London Comic-Con.</p>
+                </div>
+                <div class="footer-cont" id="footer">
+                    <div class="footer-text">
+                        <p class="footer-text-1">Designed by Gabriel Shearer &</p><p data-label="Visit." class="footer-text-1 hover-area" onclick='window.location.href="https://glued.studio/"'> &nbsp; GluedStudio</p>
+                    </div>
+                    <div class="footer-text">
+                        <p class="footer-text-1">Built by</p><p class="footer-text-1 hover-area" data-label="Visit." onclick='window.location.href="https://glued.studio/"'> &nbsp; GluedStudio</p>
+                    </div>
+                    <div class="footer-text">
+                        <p class="footer-text-1">© 2026 Gabriel Shearer | All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div> 
+            
+        </section>
+    
+    
+        <script>
+
+            const cube = $("#cube");
+
+            /*--------------------
+            Cube Follower Logic
+            --------------------*/
+            // 1. GLOBAL Mouse Movement
+            $(document).on("mousemove", function (e) {
+                cube.css({
+                    transform: `translate(${e.pageX}px, ${e.pageY}px) translate(-50%, -50%)`
+                });
+            });
+
+            // 2. Hover Enter
+            $(".hover-area").on("mouseenter", function () {
+                let projectTitle = $(this).data("label");
+                cube.text(projectTitle);
+                cube.addClass("active");
+            });
+
+            // 3. Hover Leave
+            $(".hover-area").on("mouseleave", function () {
+                cube.removeClass("active");
+                setTimeout(() => {
+                    if (!cube.hasClass("active")) cube.text(""); 
+                }, 300);
+            });
+
+        </script>
+    </body>
+
+</html>

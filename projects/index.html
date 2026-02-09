@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gabriel Shearer</title>
+    <link rel="icon" href="assets/pageicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="header-cont">
+            <p class="headtext-1 hover-area" data-label="Hey." onclick='window.location.href="#hero"'>Gabriel Shearer</p>
+            <p class="headtext-1 hover-area" data-label="About Me." onclick='window.location.href="https://shearer.design/about"' >About Me.</p>
+        </div>
+   </header>
+   <div id="container">
+    <div id="cube"> 
+    </div>
+</div>
+   <section class="hero" id="hero">
+        <div class="hero-img-cont">
+            <video id="heroVideo" autoplay muted loop playsinline class="hero-img" draggable="false" src="./assets/BATARANGS_FOR_DEADLINE 2.mp4"></video>
+        </div>
+        <div class="hero-text-div-cont hover-area" data-label="About Me." onclick='window.location.href="https://shearer.design/about"'>
+            <div class="hero-text-cont">
+                <img class="hero-type"  src="assets/Main Type.webp">
+            </div>
+        </div>
+   </section>
+   <section class="catalogue">
+        <div class="self-intro-cont">
+            <div class="self-intro">
+                <h2>I’m a graduating college student specialising in Fashion, Textiles and Costume Design, with a creative passion for prop making and producing cosplay pieces. I design and present large-scale costume work for display at events such as London Comic-Con, where my pieces are recognised for their quality and detail. Inspired by comics and character design, I create authentic costume pieces using both traditional techniques and 3D printing.</h2>
+            </div>
+            <div class="g-signature">
+                <img src="assets/G Signature.png">
+            </div>
+        </div>
+        <div class="carousel-cont">
+            <div class="carousel" id="projects">
+
+
+                <div class="carousel-item hover-area" data-label="Projects Archive">
+                    <a href="./projects/archive.html" class="project-link" draggable="false">
+                    <div class="carousel-box">
+                        <div class="title7"></div>
+                            <img src="./assets/Asset 5.png"/>
+                    </div>
+                    </a>
+                </div>
+
+                <div class="carousel-item hover-area" data-label="The Batman">
+                    <a href="./projects/batman.html" class="project-link" draggable="false">
+                    <div class="carousel-box">
+                        <div class="title4"> </div>
+                            <img src="./assets/Batarangs.webp"/>
+                    </div>
+                    </a>
+                </div>
+
+                <div class="carousel-item hover-area" data-label="DareDevil">
+                    <a href="./projects/daredevil.html"class="project-link" draggable="false">
+                    <div class="carousel-box">
+                        <div class="title6"> <br> </div>
+                        <img src="./assets/DareDevil.webp"/>
+                    </div>
+                    </a>
+                </div>
+
+                <div class="carousel-item hover-area" data-label="Doom Slayer">
+                    <a href="./projects/doomslayer.html" class="project-link" draggable="false">
+                    <div class="carousel-box">
+                        <div class="title5"> <br> </div>
+                        <img src="./assets/output.webp"/>
+                    </div>
+                    </a>
+                </div>
+
+                <div class="carousel-item hover-area" data-label="Projects Archive">
+                    <a href="./projects/archive.html" class="project-link" draggable="false">
+                    <div class="carousel-box">
+                        <div class="title7"></div>
+                            <img src="./assets/Asset 5.png"/>
+                    </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-cont" id="footer">
+            <div class="footer-text">
+                <p class="footer-text-1">Designed by Gabriel Shearer &</p><p data-label="Visit." class="footer-text-1 hover-area" onclick='window.location.href="https://glued.studio/"'> &nbsp; GluedStudio</p>
+            </div>
+            <div class="footer-text">
+                <p class="footer-text-1">Built by</p><p class="footer-text-1 hover-area" data-label="Visit." onclick='window.location.href="https://glued.studio/"'> &nbsp; GluedStudio</p>
+            </div>
+            <div class="footer-text">
+                <p class="footer-text-1">© 2026 Gabriel Shearer | All Rights Reserved.</p>
+            </div>
+        </div>
+   </section>
+   
+ 
+   <script>
+
+// --- START: Click Override Variables and Listener ---
+// This variable holds the temporary manual day number (1-25).
+// It starts at 22 to align with your new startDate (2025, 11, 22).
+// It resets on page reload, as requested (no localStorage used).
+let currentManualDay = 2; 
+
+// Click Listener: Increases the day number and updates the video
+document.getElementById('heroVideo').addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    // 1. Increase the day
+    currentManualDay++;
+    
+    // 2. Cycle logic: Reset to 1 if it goes over 25
+    if (currentManualDay > 25) {
+        currentManualDay = 1;
+    }
+    
+    // 3. Trigger the video update with the new manual day
+    // This calls the modified rotateHeroVideo function below, passing the new day number.
+    rotateHeroVideo(currentManualDay); 
+});
+// --- END: Click Override Variables and Listener ---
+
+
+// --- MODIFIED DAILY VIDEO ROTATION SCRIPT ---
+const rotateHeroVideo = (manualDay) => { // <-- ACCEPT THE NEW ARGUMENT
+    const videoElement = document.getElementById('heroVideo');
+    if (!videoElement) return;
+
+    const oneDay = 1000 * 60 * 60 * 24;
+    const now = new Date();
+    
+    let daysPassed;
+
+    // If a manualDay is passed (i.e., from the click listener), use it directly for the cycle calculation
+    if (manualDay !== undefined) {
+        daysPassed = manualDay;
+    } else {
+        // Otherwise, use the original date-based calculation
+        const startDate = new Date(2025, 11, 1); // Month is 0-indexed (December is 11)
+        const timeDifference = now.getTime() - startDate.getTime();
+        daysPassed = Math.floor(timeDifference / oneDay);
+    }
+    
+    // Cycle through 0, 1, 2 based on days passed (or manualDay)
+    const videoCycleIndex = daysPassed % 3; 
+
+    // Map the cycle index (0, 1, 2) to the video file number (2, 3, 4)
+    const videoNumber = videoCycleIndex + 1; 
+
+    // Construct the path
+    const videoPath = `./assets/HERO-BG-${videoNumber}.mp4`;
+    
+    // Set the new source
+    if (videoElement.src !== videoPath) {
+        videoElement.src = videoPath;
+        // Optionally reload/play the video if it was already loaded
+        videoElement.load();
+        videoElement.play();
+    }
+};
+
+// Execute the rotation logic immediately when the page loads
+rotateHeroVideo();
+// --- END MODIFIED DAILY VIDEO ROTATION SCRIPT ---
+
+
+
+
+
+
+
+
+
+
+const cube = $("#cube");
+
+/*--------------------
+  Cube Follower Logic
+--------------------*/
+// 1. GLOBAL Mouse Movement
+$(document).on("mousemove", function (e) {
+    cube.css({
+        transform: `translate(${e.pageX}px, ${e.pageY}px) translate(-50%, -50%)`
+    });
+});
+
+// 2. Hover Enter
+$(".hover-area").on("mouseenter", function () {
+    let projectTitle = $(this).data("label");
+    cube.text(projectTitle);
+    cube.addClass("active");
+});
+
+// 3. Hover Leave
+$(".hover-area").on("mouseleave", function () {
+    cube.removeClass("active");
+    setTimeout(() => {
+        if (!cube.hasClass("active")) cube.text(""); 
+    }, 300);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+/*--------------------
+  Carousel Logic
+--------------------*/
+let progress = 50;
+let startX = 0;
+let active = 0;
+let isDown = false;
+let isDragging = false; 
+
+/*--------------------
+  Constants
+--------------------*/
+const speedDrag = -0.1;
+
+/*--------------------
+  Get Z & Items
+--------------------*/
+const $items = document.querySelectorAll('.carousel-item');
+const getZindex = (array, index) => (array.map((_, i) => (index === i) ? array.length : array.length - Math.abs(index - i)));
+
+const displayItems = (item, index, active) => {
+    const zIndex = getZindex([...$items], active)[index];
+    item.style.setProperty('--zIndex', zIndex);
+    item.style.setProperty('--active', (index - active) / $items.length);
+};
+
+/*--------------------
+  Animate (Fixed: Floating Point Error)
+--------------------*/
+const animate = () => {
+    progress = Math.max(0, Math.min(progress, 100));
+    // FIX: Add 1e-6 (epsilon) for correct rounding
+    active = Math.floor((progress / 100 * ($items.length - 1)) + 1e-6); 
+    $items.forEach((item, index) => displayItems(item, index, active));
+};
+animate();
+
+/*--------------------
+  Click / Interaction Logic (Fixed: Snapping and Links)
+--------------------*/
+$items.forEach((item, i) => {
+    item.addEventListener('click', (e) => {
+        // 1. If dragging, prevent the link/snap and stop
+        if (isDragging) {
+            e.preventDefault(); 
+            return;
+        }
+
+        // 2. Check if this item is already the active center one
+        if (active === i) {
+            // It is the center item: Allow the <a> tag to fire 
+            return; 
+        } else {
+            // 3. If not active, prevent the link and snap it to center
+            e.preventDefault(); // Stop the <a> tag from navigating
+            
+            if ($items.length > 1) {
+                progress = (i / ($items.length - 1)) * 100;
+                animate();
+            }
+        }
+    });
+});
+
+/*--------------------
+  Mouse/Touch Handlers
+--------------------*/
+const handleMouseMove = (e) => {
+    if (!isDown) return;
+
+    const x = e.clientX || (e.touches && e.touches[0].clientX) || 0;
+    
+    // Check if the movement is a drag (10px threshold)
+    if (Math.abs(x - startX) > 10) {
+        isDragging = true;
+    }
+
+    // Only update progress if we are actually dragging
+    if (isDragging) {
+        const mouseProgress = (x - startX) * speedDrag;
+        progress = progress + mouseProgress;
+        startX = x;
+        animate();
+    }
+};
+
+const handleMouseDown = e => {
+    isDown = true;
+    isDragging = false; 
+    startX = e.clientX || (e.touches && e.touches[0].clientX) || 0;
+};
+
+const handleMouseUp = () => {
+    isDown = false;
+};
+
+/*--------------------
+  Listeners (Fixed: Removed mousewheel)
+--------------------*/
+document.addEventListener('mousedown', handleMouseDown);
+document.addEventListener('mousemove', handleMouseMove);
+document.addEventListener('mouseup', handleMouseUp);
+
+document.addEventListener('touchstart', handleMouseDown);
+document.addEventListener('touchmove', handleMouseMove);
+document.addEventListener('touchend', handleMouseUp);
+</script>
+</body>
+
+</html>
